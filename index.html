@@ -161,7 +161,35 @@
               "ETSI TS 119 432: Protocols for remote signature creation and validation operations",
             href: "https://www.etsi.org/deliver/etsi_ts/119400_119499/119432/01.02.01_60/ts_119432v010201p.pdf",
             publisher: "ETSI",
-            status: "Version 1.2.1",
+            status: "Version 1.2.1 (2020-10), latest published in ETSI deliver repository as of 2026-02-26",
+          },
+          ETSIEN319401: {
+            title:
+              "ETSI EN 319 401 V3.2.1 (2026-01): Electronic Signatures and Infrastructures (ESI); General Policy Requirements for Trust Service Providers",
+            href: "https://www.etsi.org/deliver/etsi_en/319400_319499/319401/03.02.01_60/en_319401v030201p.pdf",
+            publisher: "ETSI",
+            status: "Version 3.2.1, January 2026",
+          },
+          ETSIEN3194111: {
+            title:
+              "ETSI EN 319 411-1 V1.5.1 (2025-04): Certificate policy and security requirements for trust service providers issuing certificates; Part 1: General requirements",
+            href: "https://www.etsi.org/deliver/etsi_en/319400_319499/31941101/01.05.01_60/en_31941101v010501p.pdf",
+            publisher: "ETSI",
+            status: "Version 1.5.1, April 2025",
+          },
+          ETSIEN3194112: {
+            title:
+              "ETSI EN 319 411-2 V2.6.1 (2025-06): Certificate policy and security requirements for trust service providers issuing certificates; Part 2: Requirements for trust service providers issuing EU qualified certificates",
+            href: "https://www.etsi.org/deliver/etsi_en/319400_319499/31941102/02.06.01_60/en_31941102v020601p.pdf",
+            publisher: "ETSI",
+            status: "Version 2.6.1, June 2025",
+          },
+          ETSIEN3194125: {
+            title:
+              "ETSI EN 319 412-5 V2.5.1 (2025-03): Certificate Profiles; Part 5: QCStatements",
+            href: "https://www.etsi.org/deliver/etsi_en/319400_319499/31941205/02.05.01_60/en_31941205v020501p.pdf",
+            publisher: "ETSI",
+            status: "Version 2.5.1, March 2025",
           },
           ISO154081: {
             title: "ISO/IEC 15408-1 product page",
@@ -207,6 +235,12 @@
             href: "https://docs.samsungknox.com/dev/knox-sdk/features/mdm-providers/keystores/tima-keystore/android-keystores/",
             publisher: "Samsung Knox",
             status: "Maintained replacement for deprecated TIMA Keystore page",
+          },
+          KNOXWHITEPAPERPDF: {
+            title: "Samsung Knox Mobile Security White Paper",
+            href: "https://docs.samsungknox.com/admin/fundamentals/whitepaper/samsung-knox-mobile-security/assets/Knox-security-white-paper-r1.pdf",
+            publisher: "Samsung Knox",
+            status: "Whitepaper PDF",
           },
           ANDROIDATTEST: {
             title:
@@ -290,7 +324,7 @@
     <section id="sotd" class="override">
       <h2>Status of This Document</h2>
       <p>
-        This document is an unofficial draft report, dated February 20, 2026. It
+        This document is an unofficial draft report, dated February 26, 2026. It
         is not a specification, not a standards-track draft, and has no official
         standing.
       </p>
@@ -798,6 +832,118 @@
           </tr>
         </tbody>
       </table>
+    </section>
+
+    <section>
+      <h2>Light ETSI Demonstration: Samsung Flagship to Local-QSCD</h2>
+      <p>
+        This is a lightweight ETSI-oriented demonstration layer for the same
+        local-QSCD argument. It shows where Samsung flagship evidence supports
+        ETSI requirement intent, and where full conformity still depends on
+        CA/QTSP and audit evidence.
+      </p>
+      <table class="map-table">
+        <thead>
+          <tr>
+            <th>ETSI requirement concept</th>
+            <th>Local-QSCD expectation</th>
+            <th>Samsung S25 mapping evidence</th>
+            <th>What is still missing for full ETSI conformity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>EN 319 401 trusted systems baseline [[ETSIEN319401]]</td>
+            <td>Core trust-service components run on trustworthy systems.</td>
+            <td>
+              Knox Vault security subsystem and trusted boot / keystore controls
+              provide a concrete secure-platform basis [[KNOXVAULT]]
+              [[KNOXTIMA]] [[KNOXWHITEPAPERPDF]].
+            </td>
+            <td>
+              Organization/process controls and service-wide governance are out
+              of phone-only scope.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              EN 319 411-1 key generation and key protection intent
+              [[ETSIEN3194111]]
+            </td>
+            <td>
+              Signing keys are generated and used within controlled secure
+              cryptographic boundaries.
+            </td>
+            <td>
+              Hardware-backed key generation and attestation path on Android +
+              Samsung keystore integration [[ANDROIDATTEST]] [[KNOXTIMA]]
+              [[KNOXVAULT]].
+            </td>
+            <td>
+              Need audited issuance/enrollment policy enforcing hardware-only
+              path in production.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              EN 319 411-2 sole-control and qualified-certificate context
+              [[ETSIEN3194112]]
+            </td>
+            <td>
+              Signatory control must be robust; qualified context cannot rely on
+              weak ceremony assumptions.
+            </td>
+            <td>
+              Knox-backed auth gating and anti-hammering behavior provide a
+              strong base for sign-release control [[KNOXVAULT]].
+            </td>
+            <td>
+              Trusted-display/intent-binding and full qualified-policy evidence
+              still require closure artifacts.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              EN 319 412-5 certificate semantics (QCStatements)
+              [[ETSIEN3194125]]
+            </td>
+            <td>
+              Qualified certificate statements and OIDs must be correct and
+              auditable.
+            </td>
+            <td>
+              Device evidence can feed certificate issuance decisions, but the
+              certificate profile itself is CA/QTSP managed.
+            </td>
+            <td>
+              Out of handset scope: CA/QTSP policy, issuance workflow, and audit
+              controls.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              ETSI TS 119 432 protocol integrity (remote-signing context)
+              [[ETSI119432]]
+            </td>
+            <td>
+              DTBS/signature-activation exchange must be integrity-protected.
+            </td>
+            <td>
+              Existing recommendation in this report (signed request envelope +
+              attestation checks) is compatible with this intent.
+            </td>
+            <td>
+              Full protocol conformance testing and interoperability evidence
+              still required.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Standards pin note for this section: EN 319 401 V3.2.1 (2026-01), EN
+        319 411-1 V1.5.1 (2025-04), EN 319 411-2 V2.6.1 (2025-06), EN 319
+        412-5 V2.5.1 (2025-03), TS 119 432 V1.2.1 (2020-10).
+      </p>
     </section>
 
     <section>
@@ -1557,7 +1703,7 @@
     </section>
 
     <section>
-      <h2>Galaxy S25 Ultra Readiness Snapshot (2026-02-20)</h2>
+      <h2>Galaxy S25 Ultra Readiness Snapshot (2026-02-26)</h2>
       <div class="card">
         <p>
           1. S25 Ultra has publicly documented hardware-backed signing building
@@ -1575,6 +1721,11 @@
           standards pointer process [[EIDAS910]] [[EIDAS2016650]]. The Common
           Criteria products page is a public listing endpoint, not a normative
           requirements source [[CCPROD]].
+        </p>
+        <p>
+          4. ETSI alignment is demonstrated in this report as a
+          requirement-intent mapping layer, but full ETSI conformity still
+          requires CA/QTSP operational evidence beyond handset-only controls.
         </p>
       </div>
     </section>
