@@ -108,47 +108,6 @@
             publisher: "CC Portal",
             status: "Public listing portal (listing evidence only, no normative requirements text)",
           },
-          CENSEARCH: {
-            title: "CEN-CENELEC search entry for EN 419 241",
-            href: "https://www.cencenelec.eu/resultsearch/?q=EN+419+241",
-            publisher: "CEN-CENELEC",
-            status: "Discovery portal only (search index, not a normative source)",
-          },
-          EN419241CAT: {
-            title:
-              "CEN-CENELEC standards catalogue entry point for EN 419 241 publication lookup",
-            href: "https://standards.cencenelec.eu/dyn/www/f?p=205:110:0::::FSP_LANG_ID:25&cs=1F6C8A1C6F8C5E9F0C0E4B4F2B4D0C5F3",
-            publisher: "CEN-CENELEC",
-            status: "Discovery pointer; normative clauses come from the purchased standard text",
-          },
-          EN419241_1REF: {
-            title:
-              "EN 419241-1:2018 Trustworthy systems supporting server signing (publication lookup reference)",
-            href: "https://www.cencenelec.eu/resultsearch/?q=EN+419+241-1",
-            publisher: "CEN-CENELEC",
-            status: "Published standard identifier (2018); lookup entry, not full text",
-          },
-          EN419241_2REF: {
-            title:
-              "EN 419241-2:2019 Trustworthy systems supporting server signing - Part 2: Protection profiles for QSCD for server signing (publication lookup reference)",
-            href: "https://www.cencenelec.eu/resultsearch/?q=EN+419+241-2",
-            publisher: "CEN-CENELEC",
-            status: "Published standard identifier (2019); lookup entry, not full text",
-          },
-          EN419241_5REF: {
-            title:
-              "EN 419221-5:2018 Protection profiles for TSP cryptographic modules - Part 5: Cryptographic Module for Trust Services (corrected adjacent reference)",
-            href: "https://www.commoncriteriaportal.org/pps/index.cfm",
-            publisher: "CEN-CENELEC (indexed via Common Criteria Portal records)",
-            status:
-              "Published standard identifier (2018); corrected from prior EN 419241-5 placeholder",
-          },
-          ETSISTD: {
-            title: "ETSI Standards Search",
-            href: "https://www.etsi.org/standards",
-            publisher: "ETSI",
-            status: "Discovery portal only (search index, not a normative source)",
-          },
           ETSI1194311: {
             title:
               "ETSI TS 119 431-1 V1.3.1 (2024-12): Policy and security requirements for trust service providers issuing certificates; Part 1: General requirements",
@@ -336,17 +295,8 @@
       <p>
         Clause-level mapping in this report uses publicly downloadable SSCD PP
         documents (Part 2 and Part 5), CC Part 2/3, and CEM. For server-signing
-        migration context, this draft pins publication identifiers EN
-        419241-1:2018 and EN 419241-2:2019 as lookup references
-        [[EN419241_1REF]] [[EN419241_2REF]]. Search/catalog pages are used as
-        discovery pointers only, not as normative text [[CENSEARCH]]
-        [[EN419241CAT]].
-      </p>
-      <p>
-        Scope note: this is a local-signing mapping note. Remote-QSCD management
-        references are out of scope for clause mapping here and are tracked
-        separately under Regulation (EU) 2024/1183 and ETSI TS 119 431-1 / TS
-        119 432 [[EIDAS2024]] [[ETSI1194311]] [[ETSI119432]].
+        migration context, this draft references ETSI TS 119 431-1 and ETSI TS
+        119 432 as direct normative sources [[ETSI1194311]] [[ETSI119432]].
       </p>
       <p>
         Local-QSCD standards baseline remains anchored to Commission Implementing
@@ -355,10 +305,7 @@
       </p>
       <p>
         AI-assistance transparency: this report was produced with assistance
-        from GPT-5.3-Codex under human editorial control. Implementation
-        references for this edition include Samsung Galaxy S25 Ultra and Samsung
-        Knox technical documentation [[SAMSUNGS25US]] [[SAMSUNGNEWS25]]
-        [[KNOXVAULT]] [[KNOXTIMA]].
+        from GPT-5.3-Codex under human editorial control.
       </p>
     </section>
 
@@ -719,11 +666,8 @@
           [[CCPART3]] [[ISO154081]] [[ISO154082]] [[ISO154083]].
         </li>
         <li>
-          Server-signing migration references: EN 419241-1:2018
-          [[EN419241_1REF]], EN 419241-2:2019 [[EN419241_2REF]], and adjacent
-          trust-service cryptographic-module profile EN 419221-5:2018
-          [[EN419241_5REF]]. Catalogue/search links are discovery pointers only
-          [[EN419241CAT]] [[CENSEARCH]].
+          Server-signing migration references: ETSI TS 119 431-1 and ETSI TS
+          119 432 [[ETSI1194311]] [[ETSI119432]].
         </li>
         <li>
           Samsung Galaxy S25 Ultra implementation references: Samsung product
@@ -738,10 +682,6 @@
           Hardware-evidence and attestation references used in closure actions:
           Android key attestation guidance [[ANDROIDATTEST]] and BSI PP0084
           publication record [[BSIPP0084]].
-        </li>
-        <li>
-          Standards search portals retained as discovery entry points only (not
-          clause-level evidence) [[CENSEARCH]] [[ETSISTD]].
         </li>
       </ul>
       <p>
