@@ -62,26 +62,40 @@
             publisher: "EUR-Lex",
             status: "Consolidated text",
           },
+          EIDAS2024: {
+            title:
+              "Regulation (EU) 2024/1183 amending Regulation (EU) No 910/2014 (European Digital Identity Framework)",
+            href: "https://eur-lex.europa.eu/eli/2024/1183/oj",
+            publisher: "EUR-Lex",
+            status: "Published April 30, 2024 (OJ L 2024/1183)",
+          },
+          EIDAS2016650: {
+            title:
+              "Commission Implementing Decision (EU) 2016/650 on standards for security assessment of qualified signature/seal creation devices",
+            href: "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32016D0650",
+            publisher: "EUR-Lex",
+            status: "Published April 25, 2016 (OJ L 109)",
+          },
           PPSSCD2: {
             title:
-              "EN 419211-2:2013 maintenance report for SSCD Part 2 (Device with key generation)",
+              "BSI-CC-PP-0059-2009-MA-02: Protection profiles for secure signature creation device - Part 2: Device with key generation (EN 419211-2:2013)",
             href: "https://www.commoncriteriaportal.org/nfs/ccpfiles/files/ppfiles/pp0059_ma2a_pdf.pdf",
-            publisher: "CC Portal / BSI",
-            status: "Maintenance report, June 30, 2016",
+            publisher: "CEN/ISSS via Common Criteria Portal (DE scheme / BSI)",
+            status: "Maintenance release MA-02, published 2016-06-30",
           },
           PPSSCD5: {
             title:
-              "EN 419211-5:2013 maintenance report for SSCD Part 5 (trusted communication extension)",
+              "BSI-CC-PP-0072-2012-MA-01: Protection profiles for secure signature creation device - Part 5: Extension for device with key generation and trusted communication with signature creation application (EN 419211-5:2013)",
             href: "https://www.commoncriteriaportal.org/nfs/ccpfiles/files/ppfiles/pp0072_ma1a_pdf.pdf",
-            publisher: "CC Portal / BSI",
-            status: "Maintenance report, June 30, 2016",
+            publisher: "CEN/ISSS via Common Criteria Portal (DE scheme / BSI)",
+            status: "Maintenance release MA-01, published 2016-06-30",
           },
           PPAPPNOTE: {
             title:
-              "QSCD Application Note for PP0059/PP0071/PP0072/PP0075/PP0076",
+              "QSCD Application Note for SSCD PP set (PP0059/PP0071/PP0072/PP0075/PP0076)",
             href: "https://www.commoncriteriaportal.org/nfs/ccpfiles/files/ppfiles/PP0059_PP0071_PP0072_PP0075_PP0076_QSCD_Application_Note_pdf.pdf",
-            publisher: "CC Portal",
-            status: "Application note",
+            publisher: "Common Criteria Portal",
+            status: "Application note bundle for EN 419211 SSCD PP family",
           },
           CCPP: {
             title: "Common Criteria Portal - Protection Profiles listing",
@@ -92,37 +106,62 @@
             title: "Common Criteria Portal - Certified Products listing",
             href: "https://www.commoncriteriaportal.org/products/index.cfm",
             publisher: "CC Portal",
+            status: "Public listing portal (listing evidence only, no normative requirements text)",
           },
           CENSEARCH: {
-            title: "CEN-CENELEC search for EN 419 241",
+            title: "CEN-CENELEC search entry for EN 419 241",
             href: "https://www.cencenelec.eu/resultsearch/?q=EN+419+241",
             publisher: "CEN-CENELEC",
+            status: "Discovery portal only (search index, not a normative source)",
           },
           EN419241CAT: {
             title:
-              "CEN-CENELEC standards catalogue (EN 419 241 series entry point)",
+              "CEN-CENELEC standards catalogue entry point for EN 419 241 publication lookup",
             href: "https://standards.cencenelec.eu/dyn/www/f?p=205:110:0::::FSP_LANG_ID:25&cs=1F6C8A1C6F8C5E9F0C0E4B4F2B4D0C5F3",
             publisher: "CEN-CENELEC",
+            status: "Discovery pointer; normative clauses come from the purchased standard text",
           },
           EN419241_1REF: {
-            title: "CEN publication search reference for EN 419 241-1",
+            title:
+              "EN 419241-1:2018 Trustworthy systems supporting server signing (publication lookup reference)",
             href: "https://www.cencenelec.eu/resultsearch/?q=EN+419+241-1",
             publisher: "CEN-CENELEC",
+            status: "Published standard identifier (2018); lookup entry, not full text",
           },
           EN419241_2REF: {
-            title: "CEN publication search reference for EN 419 241-2",
+            title:
+              "EN 419241-2:2019 Trustworthy systems supporting server signing - Part 2: Protection profiles for QSCD for server signing (publication lookup reference)",
             href: "https://www.cencenelec.eu/resultsearch/?q=EN+419+241-2",
             publisher: "CEN-CENELEC",
+            status: "Published standard identifier (2019); lookup entry, not full text",
           },
           EN419241_5REF: {
-            title: "CEN publication search reference for EN 419 241-5",
-            href: "https://www.cencenelec.eu/resultsearch/?q=EN+419+241-5",
-            publisher: "CEN-CENELEC",
+            title:
+              "EN 419221-5:2018 Protection profiles for TSP cryptographic modules - Part 5: Cryptographic Module for Trust Services (corrected adjacent reference)",
+            href: "https://www.commoncriteriaportal.org/pps/index.cfm",
+            publisher: "CEN-CENELEC (indexed via Common Criteria Portal records)",
+            status:
+              "Published standard identifier (2018); corrected from prior EN 419241-5 placeholder",
           },
           ETSISTD: {
             title: "ETSI Standards Search",
             href: "https://www.etsi.org/standards",
             publisher: "ETSI",
+            status: "Discovery portal only (search index, not a normative source)",
+          },
+          ETSI1194311: {
+            title:
+              "ETSI TS 119 431-1 V1.3.1 (2024-12): Policy and security requirements for trust service providers issuing certificates; Part 1: General requirements",
+            href: "https://www.etsi.org/deliver/etsi_ts/119400_119499/11943101/01.03.01_60/ts_11943101v010301p.pdf",
+            publisher: "ETSI",
+            status: "Version 1.3.1, December 2024",
+          },
+          ETSI119432: {
+            title:
+              "ETSI TS 119 432: Protocols for remote signature creation and validation operations",
+            href: "https://www.etsi.org/deliver/etsi_ts/119400_119499/119432/01.02.01_60/ts_119432v010201p.pdf",
+            publisher: "ETSI",
+            status: "Version 1.2.1",
           },
           ISO154081: {
             title: "ISO/IEC 15408-1 product page",
@@ -262,9 +301,23 @@
       </p>
       <p>
         Clause-level mapping in this report uses publicly downloadable SSCD PP
-        documents (Part 2 and Part 5), CC Part 2/3, and CEM; EN 419 241 is
-        included as migration-target reference via CEN-CENELEC search
-        [[CENSEARCH]].
+        documents (Part 2 and Part 5), CC Part 2/3, and CEM. For server-signing
+        migration context, this draft pins publication identifiers EN
+        419241-1:2018 and EN 419241-2:2019 as lookup references
+        [[EN419241_1REF]] [[EN419241_2REF]]. Search/catalog pages are used as
+        discovery pointers only, not as normative text [[CENSEARCH]]
+        [[EN419241CAT]].
+      </p>
+      <p>
+        Scope note: this is a local-signing mapping note. Remote-QSCD management
+        references are out of scope for clause mapping here and are tracked
+        separately under Regulation (EU) 2024/1183 and ETSI TS 119 431-1 / TS
+        119 432 [[EIDAS2024]] [[ETSI1194311]] [[ETSI119432]].
+      </p>
+      <p>
+        Local-QSCD standards baseline remains anchored to Commission Implementing
+        Decision (EU) 2016/650 together with eIDAS Article 29-31 legal path
+        requirements [[EIDAS2016650]] [[EIDAS910]].
       </p>
       <p>
         AI-assistance transparency: this report was produced with assistance
@@ -624,13 +677,19 @@
         </li>
         <li>QSCD application note for this PP family [[PPAPPNOTE]].</li>
         <li>
+          Legal standards pointer for QSCD device assessment under eIDAS:
+          Commission Implementing Decision (EU) 2016/650 [[EIDAS2016650]].
+        </li>
+        <li>
           CC framework basis: ISO/IEC 15408 Parts 1-3 [[CCPART1]] [[CCPART2]]
           [[CCPART3]] [[ISO154081]] [[ISO154082]] [[ISO154083]].
         </li>
         <li>
-          Official EN 419 241 publication records (CEN/CENELEC): Part 1
-          [[EN419241_1REF]], Part 2 [[EN419241_2REF]], Part 5 [[EN419241_5REF]],
-          plus the catalogue entry point [[EN419241CAT]].
+          Server-signing migration references: EN 419241-1:2018
+          [[EN419241_1REF]], EN 419241-2:2019 [[EN419241_2REF]], and adjacent
+          trust-service cryptographic-module profile EN 419221-5:2018
+          [[EN419241_5REF]]. Catalogue/search links are discovery pointers only
+          [[EN419241CAT]] [[CENSEARCH]].
         </li>
         <li>
           Samsung Galaxy S25 Ultra implementation references: Samsung product
@@ -647,8 +706,8 @@
           publication record [[BSIPP0084]].
         </li>
         <li>
-          Related European standards discovery entry points [[CENSEARCH]]
-          [[ETSISTD]].
+          Standards search portals retained as discovery entry points only (not
+          clause-level evidence) [[CENSEARCH]] [[ETSISTD]].
         </li>
       </ul>
       <p>
@@ -729,10 +788,13 @@
               updates.
             </td>
             <td>
-              Helps maintenance planning for operational lifetime of a signing
-              profile.
+              Vendor lifecycle policy input for maintenance planning only; not a
+              regulatory assurance claim.
             </td>
-            <td>Samsung Newsroom launch statement [[SAMSUNGNEWS25]]</td>
+            <td>
+              Samsung Newsroom launch statement [[SAMSUNGNEWS25]]; no public
+              extension beyond seven years identified as of February 2026.
+            </td>
           </tr>
         </tbody>
       </table>
@@ -1510,7 +1572,9 @@
         <p>
           3. This still does not equal legal qualified status by itself.
           Certification and listing still follow the formal eIDAS path and
-          scheme process [[EIDAS910]] [[CCPROD]].
+          standards pointer process [[EIDAS910]] [[EIDAS2016650]]. The Common
+          Criteria products page is a public listing endpoint, not a normative
+          requirements source [[CCPROD]].
         </p>
       </div>
     </section>
