@@ -106,49 +106,56 @@
             title: "Common Criteria Portal - Certified Products listing",
             href: "https://www.commoncriteriaportal.org/products/index.cfm",
             publisher: "CC Portal",
-            status: "Public listing portal (listing evidence only, no normative requirements text)",
+            status:
+              "Public listing portal (listing evidence only, no normative requirements text)",
           },
           ETSI1194311: {
             title:
               "ETSI TS 119 431-1 V1.3.1 (2024-12): Policy and security requirements for trust service providers issuing certificates; Part 1: General requirements",
             href: "https://www.etsi.org/deliver/etsi_ts/119400_119499/11943101/01.03.01_60/ts_11943101v010301p.pdf",
             publisher: "ETSI",
-            status: "Version 1.3.1, December 2024",
+            status:
+              "Version 1.3.1, December 2024 (latest published in ETSI deliver directory as of 2026-02-27)",
           },
           ETSI119432: {
             title:
               "ETSI TS 119 432: Protocols for remote signature creation and validation operations",
             href: "https://www.etsi.org/deliver/etsi_ts/119400_119499/119432/01.02.01_60/ts_119432v010201p.pdf",
             publisher: "ETSI",
-            status: "Version 1.2.1 (2020-10), latest published in ETSI deliver repository as of 2026-02-26",
+            status:
+              "Version 1.2.1 (2020-10), latest published in ETSI deliver directory as of 2026-02-27 (newer revision work items exist but are not yet published in the deliver directory)",
           },
           ETSIEN319401: {
             title:
               "ETSI EN 319 401 V3.2.1 (2026-01): Electronic Signatures and Infrastructures (ESI); General Policy Requirements for Trust Service Providers",
             href: "https://www.etsi.org/deliver/etsi_en/319400_319499/319401/03.02.01_60/en_319401v030201p.pdf",
             publisher: "ETSI",
-            status: "Version 3.2.1, January 2026",
+            status:
+              "Version 3.2.1, January 2026 (latest published in ETSI deliver directory as of 2026-02-27)",
           },
           ETSIEN3194111: {
             title:
               "ETSI EN 319 411-1 V1.5.1 (2025-04): Certificate policy and security requirements for trust service providers issuing certificates; Part 1: General requirements",
             href: "https://www.etsi.org/deliver/etsi_en/319400_319499/31941101/01.05.01_60/en_31941101v010501p.pdf",
             publisher: "ETSI",
-            status: "Version 1.5.1, April 2025",
+            status:
+              "Version 1.5.1, April 2025 (latest published in ETSI deliver directory as of 2026-02-27)",
           },
           ETSIEN3194112: {
             title:
               "ETSI EN 319 411-2 V2.6.1 (2025-06): Certificate policy and security requirements for trust service providers issuing certificates; Part 2: Requirements for trust service providers issuing EU qualified certificates",
             href: "https://www.etsi.org/deliver/etsi_en/319400_319499/31941102/02.06.01_60/en_31941102v020601p.pdf",
             publisher: "ETSI",
-            status: "Version 2.6.1, June 2025",
+            status:
+              "Version 2.6.1, June 2025 (latest published in ETSI deliver directory as of 2026-02-27)",
           },
           ETSIEN3194125: {
             title:
               "ETSI EN 319 412-5 V2.5.1 (2025-03): Certificate Profiles; Part 5: QCStatements",
             href: "https://www.etsi.org/deliver/etsi_en/319400_319499/31941205/02.05.01_60/en_31941205v020501p.pdf",
             publisher: "ETSI",
-            status: "Version 2.5.1, March 2025",
+            status:
+              "Version 2.5.1, March 2025 (latest published in ETSI deliver directory as of 2026-02-27)",
           },
           ISO154081: {
             title: "ISO/IEC 15408-1 product page",
@@ -269,182 +276,256 @@
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 0.8rem;
       }
+      .term-list dt {
+        font-weight: 700;
+        margin-top: 0.55rem;
+      }
+      .term-list dd {
+        margin: 0.15rem 0 0.55rem 1.1rem;
+      }
+      .mapping-section h3 {
+        margin-top: 1.35rem;
+      }
+      .mapping-section .card p {
+        margin: 0.35rem 0;
+        line-height: 1.45;
+      }
+      .mapping-key {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #fff;
+        padding: 0.7rem 0.9rem;
+        margin: 0.7rem 0 0.9rem;
+      }
+      .family-links {
+        margin: 0.45rem 0 0.95rem;
+      }
+      .family-intro {
+        margin: 0.2rem 0 0.55rem;
+      }
     </style>
   </head>
   <body>
     <section id="abstract">
       <p>
-        This report maps Common Criteria and SSCD PP clauses to one concrete
-        local-signing TOE: Samsung Galaxy S25 Ultra (model SM-S938), with
-        clause-by-clause component mapping and linked authority references.
-      </p>
-    </section>
-
-    <section id="sotd" class="override">
-      <h2>Status of This Document</h2>
-      <p>
-        This document is an unofficial draft report, dated February 26, 2026. It
-        is not a specification, not a standards-track draft, and has no official
-        standing.
+        This report asks one practical question: how far can one concrete
+        smartphone <a href="#term-toe">TOE</a> (Samsung Galaxy S25 Ultra, model
+        SM-S938) be mapped to <a href="#term-cc">Common Criteria</a> and
+        <a href="#term-sscd">SSCD</a> <a href="#term-pp">PP</a> requirements
+        for local signing?
       </p>
       <p>
-        This document is not a legal finding of qualified status. Legal
-        qualified status requires the certification and listing path under
-        eIDAS Article 29, Article 30, and Article 31 [[EIDAS910]].
+        Core point: strong signature-control requirements can be enforced on the
+        user device and do not inherently require delegating signing control to
+        a remote trust-service path or a specialized local gadget.
       </p>
       <p>
-        Clause-level mapping in this report uses publicly downloadable SSCD PP
-        documents (Part 2 and Part 5), CC Part 2/3, and CEM. For server-signing
-        migration context, this draft references ETSI TS 119 431-1 and ETSI TS
-        119 432 as direct normative sources [[ETSI1194311]] [[ETSI119432]].
-      </p>
-      <p>
-        Local-QSCD standards baseline remains anchored to Commission Implementing
-        Decision (EU) 2016/650 together with eIDAS Article 29-31 legal path
-        requirements [[EIDAS2016650]] [[EIDAS910]].
-      </p>
-      <p>
-        AI-assistance transparency: this report was produced with assistance
-        from GPT-5.3-Codex under human editorial control.
+        This document does not claim qualification. It shows what is covered,
+        what is still uncovered, and what evidence is still required for
+        <a href="#term-st">ST</a>/<a href="#term-sar">SAR</a> evaluation and
+        the formal <a href="#term-eidas">eIDAS</a> path.
       </p>
     </section>
 
     <section>
-      <h2>Quick Cheat Sheet</h2>
-      <table class="map-table">
-        <thead>
-          <tr>
-            <th>Term</th>
-            <th>Meaning / phone-side equivalent</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>TOE</td>
-            <td>Target of Evaluation: exact evaluated boundary.</td>
-          </tr>
-          <tr>
-            <td>SoC</td>
-            <td>
-              System on Chip: the main integrated processor platform
-              (CPU/GPU/NPU and security interfaces).
-            </td>
-          </tr>
-          <tr>
-            <td>SKU</td>
-            <td>
-              Stock Keeping Unit: the exact sellable model/variant identifier
-              used to pin evaluation scope.
-            </td>
-          </tr>
-          <tr>
-            <td>OS</td>
-            <td>
-              Operating System: trusted runtime and policy enforcement layer
-              (for this report: Android 15 with One UI 7).
-            </td>
-          </tr>
-          <tr>
-            <td>SFR</td>
-            <td>Security Functional Requirement: what the TOE must do.</td>
-          </tr>
-          <tr>
-            <td>SAR</td>
-            <td>
-              Security Assurance Requirement: what evidence depth is required.
-            </td>
-          </tr>
-          <tr>
-            <td>EAL</td>
-            <td>
-              Evaluation Assurance Level package (for this profile: EAL4+).
-            </td>
-          </tr>
-          <tr>
-            <td>PP</td>
-            <td>Protection Profile for a class of products.</td>
-          </tr>
-          <tr>
-            <td>ST</td>
-            <td>Security Target for one concrete TOE implementation.</td>
-          </tr>
-          <tr>
-            <td>SCD</td>
-            <td>
-              Signature Creation Data: the private signing key used to create
-              signatures.
-            </td>
-          </tr>
-          <tr>
-            <td>SVD</td>
-            <td>
-              Signature Verification Data: the corresponding public key used to
-              verify signatures.
-            </td>
-          </tr>
-          <tr>
-            <td>DTBS</td>
-            <td>Data to be signed.</td>
-          </tr>
-          <tr>
-            <td>PKI</td>
-            <td>
-              Public Key Infrastructure: certificate chain, trust anchors,
-              revocation/validity checks, and signer certificate lifecycle in
-              app and backend policy services.
-            </td>
-          </tr>
-          <tr>
-            <td>SAM</td>
-            <td>
-              Secure Access Module: a tamper-resistant component used to protect
-              keys and enforce controlled cryptographic operations.
-            </td>
-          </tr>
-          <tr>
-            <td>QSCD</td>
-            <td>
-              Qualified Signature Creation Device as defined in eIDAS Article
-              3(23) and Annex II [[EIDAS910]].
-            </td>
-          </tr>
-          <tr>
-            <td>Local</td>
-            <td>
-              In this report, signing where SCD stays inside the Galaxy S25
-              Ultra TOE boundary during key use.
-            </td>
-          </tr>
-          <tr>
-            <td>TIMA</td>
-            <td>
-              TrustZone-based Integrity Measurement Architecture path used for
-              trusted boot and key-access control.
-            </td>
-          </tr>
-          <tr>
-            <td>UI</td>
-            <td>
-              User Interface: the system/user-facing path that shows DTBS and
-              collects user approval/authentication.
-            </td>
-          </tr>
-          <tr>
-            <td>SCA</td>
-            <td>
-              Signature Creation Application: builds canonical DTBS and requests
-              signing.
-            </td>
-          </tr>
-          <tr>
-            <td>API</td>
-            <td>
-              Application Programming Interface: the call boundary (for example,
-              keystore sign API) between app and secure signing services.
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <h2>Scope and Method</h2>
+      <p>
+        <strong>Scope:</strong> Local-signing mapping for one concrete device
+        <a href="#term-toe">TOE</a> (Samsung Galaxy S25 Ultra, model SM-S938),
+        aligned to <a href="#term-sscd">SSCD</a> <a href="#term-pp">PP</a>
+        Part 2/Part 5 criteria and <a href="#term-eidas">eIDAS</a> legal
+        anchors for signature-control outcomes [[PPSSCD2]] [[PPSSCD5]]
+        [[EIDAS910]] [[EIDAS2016650]].
+      </p>
+      <p><strong>Inclusion Rule:</strong></p>
+      <p>
+        A mapping item is included only when it can be tied to a
+        formal requirement source and mapped to a concrete phone-side control or
+        a clearly stated evidence gap.
+      </p>
+      <p><strong>Assessment Focus:</strong></p>
+      <ul>
+        <li>Clause-level mapping from <a href="#term-sscd">SSCD</a> <a href="#term-pp">PP</a> criteria to concrete S25 control paths.</li>
+        <li>Evidence-backed coverage statements tied to formal requirement sources.</li>
+        <li>Uncovered items that still require <a href="#term-st">ST</a>/<a href="#term-sar">SAR</a> closure evidence.</li>
+        <li>Clear separation between technical coverage mapping and formal qualification outcome.</li>
+      </ul>
+      <p><strong>Method:</strong></p>
+      <p>
+        Section 5 uses one format for each mapped item:
+        <a href="#term-criteria"><strong>CRITERIA</strong></a> (formal clause),
+        <a href="#term-covered"><strong>COVERED</strong></a> (what current S25
+        controls handle), and
+        <a href="#term-uncovered"><strong>UNCOVERED</strong></a> (what still
+        needs closure evidence).
+      </p>
+      <p>
+        The goal is practical: show what is already defensible with current
+        public evidence, what is technically plausible but not yet evidenced,
+        and what remains required for formal evaluation and certification path
+        work.
+      </p>
+    </section>
+
+    <section id="terminology">
+      <h2>Terminology and Abbreviations</h2>
+      <p>
+        Definitions for the terms and abbreviations used in this report.
+      </p>
+      <dl class="term-list">
+        <dt>
+          <dfn class="export" id="term-toe" data-lt="TOE">TOE</dfn> (Target of Evaluation)
+        </dt>
+        <dd>The exact security boundary that is evaluated.</dd>
+
+        <dt><dfn class="export" id="term-cc" data-lt="CC">CC</dfn> (Common Criteria)</dt>
+        <dd>Security evaluation framework used for requirement and assurance mapping.</dd>
+
+        <dt><dfn class="export" id="term-pp" data-lt="PP">PP</dfn> (Protection Profile)</dt>
+        <dd>Reusable requirement baseline for a class of security products.</dd>
+
+        <dt><dfn class="export" id="term-sscd" data-lt="SSCD">SSCD</dfn> (Secure Signature Creation Device)</dt>
+        <dd>Protection-profile family used here for local-signing requirement mapping.</dd>
+
+        <dt><dfn class="export" id="term-st" data-lt="ST">ST</dfn> (Security Target)</dt>
+        <dd>Product-specific security claims for one concrete TOE.</dd>
+
+        <dt><dfn class="export" id="term-sar" data-lt="SAR">SAR</dfn> (Security Assurance Requirement)</dt>
+        <dd>Evidence and evaluation depth required to support the claims.</dd>
+
+        <dt><dfn class="export" id="term-cem" data-lt="CEM">CEM</dfn> (Common Evaluation Methodology)</dt>
+        <dd>Method used to evaluate Common Criteria assurance components.</dd>
+
+        <dt><dfn class="export" id="term-eidas" data-lt="eIDAS">eIDAS</dfn></dt>
+        <dd>Regulation (EU) No 910/2014 legal framework for trust services [[EIDAS910]].</dd>
+
+        <dt>
+          <dfn class="export" id="term-qscd" data-lt="QSCD">QSCD</dfn> (Qualified Signature Creation Device)
+        </dt>
+        <dd>Device concept under eIDAS Annex II control requirements [[EIDAS910]].</dd>
+
+        <dt><dfn class="export" id="term-etsi" data-lt="ETSI">ETSI</dfn></dt>
+        <dd>Standards body publishing the service-layer standards referenced in this report.</dd>
+
+        <dt>
+          <dfn class="export" id="term-scd" data-lt="SCD">SCD</dfn> (Signature Creation Data)
+        </dt>
+        <dd>Private signing key material used to create signatures.</dd>
+
+        <dt>
+          <dfn class="export" id="term-svd" data-lt="SVD">SVD</dfn> (Signature Verification Data)
+        </dt>
+        <dd>Public-key material used to verify signatures.</dd>
+
+        <dt><dfn class="export" id="term-dtbs" data-lt="DTBS">DTBS</dfn> (Data To Be Signed)</dt>
+        <dd>The exact data object that is signed.</dd>
+
+        <dt><dfn class="export" id="term-dtbsr" data-lt="DTBS/R">DTBS/R</dfn> (Data To Be Signed Representation)</dt>
+        <dd>The user-visible representation of what is being signed.</dd>
+
+        <dt><dfn class="export" id="term-sca" data-lt="SCA">SCA</dfn> (Signature Creation Application)</dt>
+        <dd>Application path that prepares DTBS and calls signing APIs.</dd>
+
+        <dt><dfn class="export" id="term-vad" data-lt="VAD">VAD</dfn> (Verification/Authentication Data)</dt>
+        <dd>Authentication data used to release a signing event.</dd>
+
+        <dt><dfn class="export" id="term-tsf" data-lt="TSF">TSF</dfn> (TOE Security Functionality)</dt>
+        <dd>Security functions implemented inside TOE scope.</dd>
+
+        <dt><dfn class="export" id="term-tee" data-lt="TEE">TEE</dfn> (Trusted Execution Environment)</dt>
+        <dd>Isolated execution environment for sensitive security operations.</dd>
+
+        <dt><dfn class="export" id="term-tima" data-lt="TIMA">TIMA</dfn> (TrustZone-based Integrity Measurement Architecture)</dt>
+        <dd>Samsung trusted-boot and integrity-control path used in this mapping.</dd>
+
+        <dt><dfn class="export" id="term-knox-vault" data-lt="Knox Vault">Knox Vault</dfn></dt>
+        <dd>Samsung hardware-backed key protection subsystem used for key generation and key use controls.</dd>
+
+        <dt><dfn class="export" id="term-api" data-lt="API">API</dfn> (Application Programming Interface)</dt>
+        <dd>Call boundary between components (for example, app-to-keystore).</dd>
+
+        <dt><dfn class="export" id="term-ca" data-lt="CA">CA</dfn> (Certificate Authority)</dt>
+        <dd>Entity responsible for certificate issuance and lifecycle controls.</dd>
+
+        <dt><dfn class="export" id="term-qtsp" data-lt="QTSP">QTSP</dfn> (Qualified Trust Service Provider)</dt>
+        <dd>Qualified trust-service operator in the eIDAS framework.</dd>
+
+        <dt><dfn class="export" id="term-qcstatements" data-lt="QCStatements">QCStatements</dfn></dt>
+        <dd>Qualified-certificate statement profile concept in EN 319 412-5.</dd>
+
+        <dt><dfn class="export" id="term-families" data-lt="FCS,FDP,FIA,FMT,FPT,FTP">FCS / FDP / FIA / FMT / FPT / FTP</dfn></dt>
+        <dd>Common Criteria family abbreviations used in the Section 5 clause mapping tables.</dd>
+
+        <dt><dfn class="export" id="term-fcs" data-lt="FCS">FCS</dfn> (Cryptographic Support)</dt>
+        <dd>Common Criteria family for cryptographic mechanisms and operations.</dd>
+
+        <dt><dfn class="export" id="term-fdp" data-lt="FDP">FDP</dfn> (User Data Protection)</dt>
+        <dd>Common Criteria family for access control and data-protection rules.</dd>
+
+        <dt><dfn class="export" id="term-fia" data-lt="FIA">FIA</dfn> (Identification and Authentication)</dt>
+        <dd>Common Criteria family for identity and authentication controls.</dd>
+
+        <dt><dfn class="export" id="term-fmt" data-lt="FMT">FMT</dfn> (Security Management)</dt>
+        <dd>Common Criteria family for management functions and policy control.</dd>
+
+        <dt><dfn class="export" id="term-fpt" data-lt="FPT">FPT</dfn> (Protection of the TSF)</dt>
+        <dd>Common Criteria family for protection of TOE security functionality.</dd>
+
+        <dt><dfn class="export" id="term-ftp" data-lt="FTP">FTP</dfn> (Trusted Channel/Path)</dt>
+        <dd>Common Criteria family for trusted communication paths.</dd>
+
+        <dt><dfn class="export" id="term-criteria" data-lt="CRITERIA">CRITERIA</dfn></dt>
+        <dd>Formal requirement clause being mapped.</dd>
+
+        <dt><dfn class="export" id="term-covered" data-lt="COVERED">COVERED</dfn></dt>
+        <dd>What current S25 controls already satisfy.</dd>
+
+        <dt><dfn class="export" id="term-uncovered" data-lt="UNCOVERED">UNCOVERED</dfn></dt>
+        <dd>What still needs evidence or implementation closure.</dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Legal and Standards Baseline</h2>
+      <p>
+        This report anchors its legal control model to
+        <a href="#term-eidas">eIDAS</a> Annex II.
+        Signature-creation data must stay confidential, practically unique,
+        resistant to derivation and forgery, and usable only under signatory
+        control. The data to be signed must also be shown before release so
+        signing cannot occur with silent alteration [[EIDAS910]].
+      </p>
+      <p>
+        The technical baseline is <a href="#term-sscd">SSCD</a>
+        <a href="#term-pp">PP</a> Part 2 and Part 5, plus the
+        <a href="#term-qscd">QSCD</a> application note, under the
+        <a href="#term-eidas">eIDAS</a> standards-pointer path in Decision
+        2016/650. The evaluation method follows Common Criteria Part 1-3 and CEM
+        [[PPSSCD2]] [[PPSSCD5]] [[PPAPPNOTE]] [[EIDAS2016650]] [[CCPART1]]
+        [[CCPART2]] [[CCPART3]] [[CEMR5]].
+      </p>
+      <p>
+        <a href="#term-etsi">ETSI</a> standards are the service-layer comparison
+        set: EN 319 401 for
+        trusted systems, EN 319 411-1/-2 for certificate policy and qualified
+        context, EN 319 412-5 for QCStatements, and TS 119 432 for the
+        remote-signing protocol model [[ETSIEN319401]] [[ETSIEN3194111]]
+        [[ETSIEN3194112]] [[ETSIEN3194125]] [[ETSI119432]] [[ETSI1194311]].
+      </p>
+      <p>
+        Phone-side evidence (<a href="#term-knox-vault">Knox Vault</a>,
+        <a href="#term-tima">TIMA</a>, and Android attestation) supports
+        three device claims: protected key boundary, controlled key lifecycle,
+        and sign-release gating [[KNOXVAULT]] [[KNOXTIMA]] [[ANDROIDATTEST]].
+      </p>
+      <p>
+        What remains is service-level closure evidence: audited
+        <a href="#term-ca">CA</a>/<a href="#term-qtsp">QTSP</a> policy
+        controls, qualified-certificate process evidence, and
+        protocol/interoperability test results. TS 119 432 defines protocol
+        structure, but not the full signer-intent assurance stack
+        [[ETSI119432]].
+      </p>
     </section>
 
     <section>
@@ -581,1142 +662,345 @@
           </text>
         </svg>
         <figcaption>
-          The full consumer phone is not automatically the evaluated TOE; the ST
-          still must define exact security boundaries [[CCPART1]].
+          The full consumer phone is not automatically the evaluated
+          <a href="#term-toe">TOE</a>; the <a href="#term-st">ST</a> still must
+          define exact security boundaries [[CCPART1]].
         </figcaption>
       </figure>
     </section>
 
-    <section>
-      <h2>Legal Anchor to eIDAS Annex II</h2>
-      <table class="map-table">
-        <thead>
-          <tr>
-            <th>eIDAS clause</th>
-            <th>Outcome</th>
-            <th>Phone-side technical interpretation</th>
-            <th>Authority reference</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Annex II(1)(a)</td>
-            <td>SCD confidentiality.</td>
-            <td>
-              Keep signing key in Galaxy S25 Ultra secure hardware boundary
-              (Knox Vault / TrustZone keystore path).
-            </td>
-            <td>Annex II(1)(a) [[EIDAS910]]</td>
-          </tr>
-          <tr>
-            <td>Annex II(1)(b)</td>
-            <td>SCD practically unique.</td>
-            <td>
-              On-device key generation on Galaxy S25 Ultra with hardware-backed
-              key identity control.
-            </td>
-            <td>Annex II(1)(b) [[EIDAS910]]</td>
-          </tr>
-          <tr>
-            <td>Annex II(1)(c)</td>
-            <td>SCD non-derivability and anti-forgery.</td>
-            <td>
-              Certified algorithms plus side-channel/fault defense claims in the
-              Knox Vault security subsystem.
-            </td>
-            <td>Annex II(1)(c) [[EIDAS910]]</td>
-          </tr>
-          <tr>
-            <td>Annex II(1)(d)</td>
-            <td>Signatory protection against others.</td>
-            <td>
-              Strong local auth and anti-hammering tied to signing command in
-              Knox-backed auth flow.
-            </td>
-            <td>Annex II(1)(d) [[EIDAS910]]</td>
-          </tr>
-          <tr>
-            <td>Annex II(2)</td>
-            <td>No silent DTBS alteration; show data before signing.</td>
-            <td>
-              Explicit DTBS display and user intent capture in One UI signing
-              ceremony with integrity binding controls.
-            </td>
-            <td>Annex II(2) [[EIDAS910]]</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    
 
-    <section>
-      <h2>Local-Signing PP Baseline Used Here</h2>
-      <ul>
-        <li>Core PP: SSCD Part 2 (key generation) [[PPSSCD2]].</li>
-        <li>
-          Extension PP: SSCD Part 5 (trusted communication with SCA)
-          [[PPSSCD5]].
-        </li>
-        <li>QSCD application note for this PP family [[PPAPPNOTE]].</li>
-        <li>
-          Legal standards pointer for QSCD device assessment under eIDAS:
-          Commission Implementing Decision (EU) 2016/650 [[EIDAS2016650]].
-        </li>
-        <li>
-          CC framework basis: ISO/IEC 15408 Parts 1-3 [[CCPART1]] [[CCPART2]]
-          [[CCPART3]] [[ISO154081]] [[ISO154082]] [[ISO154083]].
-        </li>
-        <li>
-          Server-signing migration references: ETSI TS 119 431-1 and ETSI TS
-          119 432 [[ETSI1194311]] [[ETSI119432]].
-        </li>
-        <li>
-          Samsung Galaxy S25 Ultra implementation references: Samsung product
-          page and public launch specification table [[SAMSUNGS25US]]
-          [[SAMSUNGNEWS25]].
-        </li>
-        <li>
-          Samsung security subsystem references for mapping evidence: Knox Vault
-          and TIMA keystore documentation [[KNOXVAULT]] [[KNOXTIMA]].
-        </li>
-        <li>
-          Hardware-evidence and attestation references used in closure actions:
-          Android key attestation guidance [[ANDROIDATTEST]] and BSI PP0084
-          publication record [[BSIPP0084]].
-        </li>
-      </ul>
+    <section id="section-mapping" class="mapping-section">
+      <h2>Common Criteria and <a href="#term-pp">PP</a> Family Mapping to Galaxy S25 Ultra</h2>
       <p>
-        The mapping in this document is clause-by-clause to keep the path
-        practical: for each PP clause, either map it to a real component now or
-        apply the stated closure action.
+        This section maps <a href="#term-cc">Common Criteria</a> and
+        <a href="#term-sscd">SSCD</a> protection-profile families to concrete
+        Samsung Galaxy S25 Ultra control points.
       </p>
-    </section>
-
-    <section>
-      <h2>Samsung Galaxy S25 Ultra Specification Snapshot</h2>
-      <table class="map-table">
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Official value</th>
-            <th>Why it matters for local-QSCD mapping</th>
-            <th>Authority reference</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Target device and model</td>
-            <td>Galaxy S25 Ultra, model SM-S938.</td>
-            <td>Pins the TOE to one concrete device family and SKU line.</td>
-            <td>Samsung US product page metadata [[SAMSUNGS25US]]</td>
-          </tr>
-          <tr>
-            <td>SoC platform</td>
-            <td>Snapdragon 8 Elite for Galaxy.</td>
-            <td>
-              Defines the hardware execution platform for secure key services.
-            </td>
-            <td>
-              Samsung US and Samsung Newsroom [[SAMSUNGS25US]] [[SAMSUNGNEWS25]]
-            </td>
-          </tr>
-          <tr>
-            <td>OS and UI stack</td>
-            <td>Android 15 with One UI 7.</td>
-            <td>
-              Identifies the runtime path used for signing ceremony and user
-              interaction.
-            </td>
-            <td>Samsung Newsroom specification table [[SAMSUNGNEWS25]]</td>
-          </tr>
-          <tr>
-            <td>Memory and storage variants</td>
-            <td>12GB RAM with 256GB, 512GB, or 1TB storage.</td>
-            <td>
-              Sets operational envelope for on-device key and policy data.
-            </td>
-            <td>Samsung Newsroom specification table [[SAMSUNGNEWS25]]</td>
-          </tr>
-          <tr>
-            <td>Battery and reliability profile</td>
-            <td>5,000 mAh battery.</td>
-            <td>
-              Useful for availability assumptions in local signing workflows.
-            </td>
-            <td>Samsung Newsroom specification table [[SAMSUNGNEWS25]]</td>
-          </tr>
-          <tr>
-            <td>Security subsystem</td>
-            <td>Knox Vault + TrustZone/TIMA keystore path.</td>
-            <td>
-              Core basis for hardware-backed key generation, key protection, and
-              controlled signing operations.
-            </td>
-            <td>
-              Samsung Knox technical documentation [[KNOXVAULT]] [[KNOXTIMA]]
-            </td>
-          </tr>
-          <tr>
-            <td>Long-term support statement</td>
-            <td>
-              Seven generations of OS upgrades and seven years of security
-              updates.
-            </td>
-            <td>
-              Vendor lifecycle policy input for maintenance planning only; not a
-              regulatory assurance claim.
-            </td>
-            <td>
-              Samsung Newsroom launch statement [[SAMSUNGNEWS25]]; no public
-              extension beyond seven years identified as of February 2026.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2>Light ETSI Demonstration: Samsung Flagship to Local-QSCD</h2>
       <p>
-        This is a lightweight ETSI-oriented demonstration layer for the same
-        local-QSCD argument. It shows where Samsung flagship evidence supports
-        ETSI requirement intent, and where full conformity still depends on
-        CA/QTSP and audit evidence.
+        Format per criterion:
+        <a href="#term-criteria"><strong>CRITERIA</strong></a> (formal clause
+        and source), <a href="#term-covered"><strong>COVERED</strong></a>
+        (what S25 currently handles), and
+        <a href="#term-uncovered"><strong>UNCOVERED</strong></a> (what still
+        requires closure for conformity).
       </p>
-      <table class="map-table">
-        <thead>
-          <tr>
-            <th>ETSI requirement concept</th>
-            <th>Local-QSCD expectation</th>
-            <th>Samsung S25 mapping evidence</th>
-            <th>What is still missing for full ETSI conformity</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>EN 319 401 trusted systems baseline [[ETSIEN319401]]</td>
-            <td>Core trust-service components run on trustworthy systems.</td>
-            <td>
-              Knox Vault security subsystem and trusted boot / keystore controls
-              provide a concrete secure-platform basis [[KNOXVAULT]]
-              [[KNOXTIMA]] [[KNOXWHITEPAPERPDF]].
-            </td>
-            <td>
-              Organization/process controls and service-wide governance are out
-              of phone-only scope.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              EN 319 411-1 key generation and key protection intent
-              [[ETSIEN3194111]]
-            </td>
-            <td>
-              Signing keys are generated and used within controlled secure
-              cryptographic boundaries.
-            </td>
-            <td>
-              Hardware-backed key generation and attestation path on Android +
-              Samsung keystore integration [[ANDROIDATTEST]] [[KNOXTIMA]]
-              [[KNOXVAULT]].
-            </td>
-            <td>
-              Need audited issuance/enrollment policy enforcing hardware-only
-              path in production.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              EN 319 411-2 sole-control and qualified-certificate context
-              [[ETSIEN3194112]]
-            </td>
-            <td>
-              Signatory control must be robust; qualified context cannot rely on
-              weak ceremony assumptions.
-            </td>
-            <td>
-              Knox-backed auth gating and anti-hammering behavior provide a
-              strong base for sign-release control [[KNOXVAULT]].
-            </td>
-            <td>
-              Trusted-display/intent-binding and full qualified-policy evidence
-              still require closure artifacts.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              EN 319 412-5 certificate semantics (QCStatements)
-              [[ETSIEN3194125]]
-            </td>
-            <td>
-              Qualified certificate statements and OIDs must be correct and
-              auditable.
-            </td>
-            <td>
-              Device evidence can feed certificate issuance decisions, but the
-              certificate profile itself is CA/QTSP managed.
-            </td>
-            <td>
-              Out of handset scope: CA/QTSP policy, issuance workflow, and audit
-              controls.
-            </td>
-          </tr>
-          <tr>
-            <td>
-              ETSI TS 119 432 protocol integrity (remote-signing context)
-              [[ETSI119432]]
-            </td>
-            <td>
-              DTBS/signature-activation exchange must be integrity-protected.
-            </td>
-            <td>
-              Existing recommendation in this report (signed request envelope +
-              attestation checks) is compatible with this intent.
-            </td>
-            <td>
-              Full protocol conformance testing and interoperability evidence
-              still required.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <p>
-        Standards pin note for this section: EN 319 401 V3.2.1 (2026-01), EN
-        319 411-1 V1.5.1 (2025-04), EN 319 411-2 V2.6.1 (2025-06), EN 319
-        412-5 V2.5.1 (2025-03), TS 119 432 V1.2.1 (2020-10).
-      </p>
-    </section>
-
-    <section>
-      <h2>Family Map: FCS (Cryptographic Support)</h2>
-      <p>
-        Each table row is one clause subsection, mapped to Galaxy S25 Ultra
-        components.
-      </p>
-      <table class="map-table">
-        <thead>
-          <tr>
-            <th>Clause</th>
-            <th>What it asks</th>
-            <th>Phone mapping</th>
-            <th>Gap closure suggestion</th>
-            <th>Authority reference</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Part 2 §10.2.2.1 FCS_CKM.1</td>
-            <td>Generate SCD/SVD using specified algorithms and parameters.</td>
-            <td>
-              Galaxy S25 Ultra: generate SCD/SVD in Knox Vault StrongBox /
-              KeyMint hardware path only [[KNOXVAULT]] [[KNOXTIMA]].
-            </td>
-            <td>Reject non-hardware key generation paths in ST.</td>
-            <td>
-              SSCD PP Part 2 §10.2.2.1 [[PPSSCD2]]; Samsung keystore hardware
-              path [[KNOXVAULT]] [[KNOXTIMA]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.2.2 FCS_CKM.4</td>
-            <td>Destroy keys according to specified method.</td>
-            <td>
-              Galaxy S25 Ultra: key invalidation and hardware-protected key
-              storage lifecycle in Knox Vault/TIMA keystore stack [[KNOXVAULT]]
-              [[KNOXTIMA]].
-            </td>
-            <td>Add residual-data verification tests.</td>
-            <td>
-              SSCD PP Part 2 §10.2.2.2 [[PPSSCD2]]; Samsung keystore behavior
-              [[KNOXTIMA]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.2.3 FCS_COP.1</td>
-            <td>Perform cryptographic signing operation.</td>
-            <td>
-              Galaxy S25 Ultra: private-key operations are kept inside
-              TrustZone/Knox Vault keystore boundary with non-exportable key
-              intent [[KNOXVAULT]] [[KNOXTIMA]].
-            </td>
-            <td>Constrain algorithm profiles explicitly in ST assignments.</td>
-            <td>
-              SSCD PP Part 2 §10.2.2.3 [[PPSSCD2]]; Samsung keystore and
-              StrongBox notes [[KNOXVAULT]] [[KNOXTIMA]]
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2>Family Map: FDP (User Data Protection)</h2>
-      <p>
-        Each table row is one clause subsection, mapped to Galaxy S25 Ultra
-        components.
-      </p>
-      <table class="map-table">
-        <thead>
-          <tr>
-            <th>Clause</th>
-            <th>What it asks</th>
-            <th>Phone mapping</th>
-            <th>Gap closure suggestion</th>
-            <th>Authority reference</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Part 2 §10.2.3.1 FDP_ACC.1/SCD/SVD_Generation</td>
-            <td>Access control for key generation objects.</td>
-            <td>
-              Galaxy S25 Ultra: key generation is policy-gated in Knox/TIMA
-              keystore with trusted boot state checks [[KNOXTIMA]].
-            </td>
-            <td>Publish role-policy matrix in ST.</td>
-            <td>
-              SSCD PP Part 2 §10.2.3.1 [[PPSSCD2]]; Samsung keystore controls
-              [[KNOXTIMA]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.3.2 FDP_ACF.1/SCD/SVD_Generation</td>
-            <td>Attribute-based generation rules.</td>
-            <td>
-              Galaxy S25 Ultra: enforce key attributes and usage constraints in
-              hardware-backed keystore policy objects [[KNOXTIMA]]
-              [[ANDROIDATTEST]].
-            </td>
-            <td>Add negative authorization tests.</td>
-            <td>
-              SSCD PP Part 2 §10.2.3.2 [[PPSSCD2]]; Android key attestation
-              properties [[ANDROIDATTEST]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.3.3 FDP_ACC.1/SVD_Transfer</td>
-            <td>Access control for SVD transfer.</td>
-            <td>
-              Galaxy S25 Ultra: allow only public-key/certificate export via
-              approved API endpoint; private key remains non-exportable in
-              hardware [[KNOXTIMA]] [[KNOXVAULT]].
-            </td>
-            <td>Bind export to enrollment/certification state.</td>
-            <td>
-              SSCD PP Part 2 §10.2.3.3 [[PPSSCD2]]; Samsung key boundary notes
-              [[KNOXVAULT]] [[KNOXTIMA]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.3.4 FDP_ACF.1/SVD_Transfer</td>
-            <td>Rules for SVD transfer decisions.</td>
-            <td>
-              Galaxy S25 Ultra: perform release checks on trusted boot state,
-              key purpose, and authenticated app flow before SVD transfer
-              [[KNOXTIMA]] [[ANDROIDATTEST]].
-            </td>
-            <td>Add explicit deny rules for untrusted channels.</td>
-            <td>
-              SSCD PP Part 2 §10.2.3.4 [[PPSSCD2]]; Android attestation guidance
-              [[ANDROIDATTEST]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.3.5 FDP_ACC.1/Signature-creation</td>
-            <td>Access control on sign operation.</td>
-            <td>
-              Galaxy S25 Ultra: signing only in authenticated session, with key
-              access controlled by Knox Vault/TIMA path [[KNOXVAULT]]
-              [[KNOXTIMA]].
-            </td>
-            <td>Require per-signature intent token.</td>
-            <td>
-              SSCD PP Part 2 §10.2.3.5 [[PPSSCD2]]; Knox authentication gating
-              [[KNOXVAULT]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.3.6 FDP_ACF.1/Signature-creation</td>
-            <td>Attribute rules for sign operation.</td>
-            <td>
-              Galaxy S25 Ultra: enforce key purpose, auth freshness, and boot
-              integrity state before sign execution [[KNOXTIMA]]
-              [[ANDROIDATTEST]].
-            </td>
-            <td>Add default-deny for background requests.</td>
-            <td>
-              SSCD PP Part 2 §10.2.3.6 [[PPSSCD2]]; Samsung trusted boot checks
-              [[KNOXTIMA]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.3.7 FDP_RIP.1</td>
-            <td>Residual information protection.</td>
-            <td>
-              Galaxy S25 Ultra: partially mapped through hardware-backed
-              keystore isolation; explicit buffer-wipe evidence still needs ST
-              test artifacts.
-            </td>
-            <td>Include memory-clearing evidence in tests.</td>
-            <td>
-              SSCD PP Part 2 §10.2.3.7 [[PPSSCD2]]; implementation context
-              [[KNOXTIMA]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.3.8 FDP_SDI.2/Persistent</td>
-            <td>Persistent data integrity monitoring and action.</td>
-            <td>
-              Galaxy S25 Ultra: trusted boot and keystore integrity checks gate
-              key usage and storage operations [[KNOXTIMA]].
-            </td>
-            <td>Add anti-rollback counters.</td>
-            <td>
-              SSCD PP Part 2 §10.2.3.8 [[PPSSCD2]]; trusted boot linkage
-              [[KNOXTIMA]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.3.9 FDP_SDI.2/DTBS</td>
-            <td>DTBS integrity monitoring and action.</td>
-            <td>
-              Galaxy S25 Ultra: implement DTBS hash-binding in SCA and pass only
-              canonicalized payloads to keystore sign API.
-            </td>
-            <td>Define canonical DTBS/R serialization.</td>
-            <td>
-              SSCD PP Part 2 §10.2.3.9 [[PPSSCD2]]; attestation-assisted design
-              [[ANDROIDATTEST]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 5 §9.1.2 FDP_UIT.1/DTBS</td>
-            <td>Integrity for DTBS data exchange path.</td>
-            <td>
-              Galaxy S25 Ultra: authenticated and integrity-protected SCA-to-TOE
-              channel, with key attestation and signed request envelope where
-              needed [[ANDROIDATTEST]] [[KNOXTIMA]].
-            </td>
-            <td>If opaque channel, wrap DTBS in signed request envelope.</td>
-            <td>
-              SSCD PP Part 5 §9.1.2 [[PPSSCD5]]; Android attestation guidance
-              [[ANDROIDATTEST]]
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2>Family Map: FIA (Identification and Authentication)</h2>
-      <p>
-        Each table row is one clause subsection, mapped to Galaxy S25 Ultra
-        components.
-      </p>
-      <table class="map-table">
-        <thead>
-          <tr>
-            <th>Clause</th>
-            <th>What it asks</th>
-            <th>Phone mapping</th>
-            <th>Gap closure suggestion</th>
-            <th>Authority reference</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Part 2 §10.2.4.1 FIA_UID.1</td>
-            <td>User identification timing.</td>
-            <td>
-              Galaxy S25 Ultra: bind signatory identity context before protected
-              keystore operations in the signing ceremony.
-            </td>
-            <td>Bind identity context to signing session id.</td>
-            <td>
-              SSCD PP Part 2 §10.2.4.1 [[PPSSCD2]]; Knox auth architecture
-              [[KNOXVAULT]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.4.2 FIA_UAU.1</td>
-            <td>User authentication timing.</td>
-            <td>
-              Galaxy S25 Ultra: biometric/PIN gating before sign release through
-              Knox Vault-backed auth path [[KNOXVAULT]].
-            </td>
-            <td>Step-up auth for high-risk signatures.</td>
-            <td>
-              SSCD PP Part 2 §10.2.4.2 [[PPSSCD2]]; Samsung auth controls
-              [[KNOXVAULT]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.4.3 FIA_AFL.1</td>
-            <td>Authentication failure handling.</td>
-            <td>
-              Galaxy S25 Ultra: retry limits and increasing timeout behavior are
-              documented for Knox Vault authentication [[KNOXVAULT]].
-            </td>
-            <td>Expose lockout policy as TSF-managed data.</td>
-            <td>
-              SSCD PP Part 2 §10.2.4.3 [[PPSSCD2]]; Knox Vault timeout model
-              [[KNOXVAULT]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 5 §9.1.1 FIA_UAU.1 refinement</td>
-            <td>Authentication flow adapted for trusted channel/VAD path.</td>
-            <td>
-              Galaxy S25 Ultra: use system-auth path tied to signing ceremony;
-              strong anti-overlay proof remains a closure item for ST evidence.
-            </td>
-            <td>Add secure attention mode for VAD entry.</td>
-            <td>
-              SSCD PP Part 5 §9.1.1 [[PPSSCD5]]; implementation anchors
-              [[KNOXVAULT]] [[KNOXTIMA]]
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2>Family Map: FMT (Security Management)</h2>
-      <p>
-        Each table row is one clause subsection, mapped to Galaxy S25 Ultra
-        components.
-      </p>
-      <table class="map-table">
-        <thead>
-          <tr>
-            <th>Clause</th>
-            <th>What it asks</th>
-            <th>Phone mapping</th>
-            <th>Gap closure suggestion</th>
-            <th>Authority reference</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Part 2 §10.2.5.1 FMT_SMR.1</td>
-            <td>Maintain security roles.</td>
-            <td>
-              Galaxy S25 Ultra: consumer profile is mostly single-user; explicit
-              Admin vs Signatory separation needs managed deployment policy.
-            </td>
-            <td>Do not collapse both roles silently in production.</td>
-            <td>
-              SSCD PP Part 2 §10.2.5.1 [[PPSSCD2]]; Knox policy API context
-              [[KNOXTIMA]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.5.2 FMT_SMF.1</td>
-            <td>List TOE management functions.</td>
-            <td>
-              Galaxy S25 Ultra: key lifecycle, auth, certificate policy, and
-              keystore control functions are available through Knox policy
-              paths.
-            </td>
-            <td>Complete all ST assignments from PP application notes.</td>
-            <td>
-              SSCD PP Part 2 §10.2.5.2 [[PPSSCD2]]; Samsung policy functions
-              [[KNOXTIMA]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.5.3 FMT_MOF.1</td>
-            <td>Restrict security function behavior management.</td>
-            <td>
-              Galaxy S25 Ultra: restrict sign-enable behavior through managed
-              policy and app-layer authorization gates.
-            </td>
-            <td>Add immutable event logs for enable/disable actions.</td>
-            <td>
-              SSCD PP Part 2 §10.2.5.3 [[PPSSCD2]]; Knox policy APIs
-              [[KNOXTIMA]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.5.4 FMT_MSA.1/Admin</td>
-            <td>Admin management of security attributes.</td>
-            <td>
-              Galaxy S25 Ultra: admin-side certificate and keystore policy
-              controls exist in managed Knox deployment flows [[KNOXTIMA]].
-            </td>
-            <td>Require authenticated admin channel and approvals.</td>
-            <td>
-              SSCD PP Part 2 §10.2.5.4 [[PPSSCD2]]; Knox certificate policy
-              controls [[KNOXTIMA]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.5.5 FMT_MSA.1/Signatory</td>
-            <td>Signatory management of security attributes.</td>
-            <td>
-              Galaxy S25 Ultra: signatory-side controls exist at app level; add
-              explicit user policy UI for certification-grade traceability.
-            </td>
-            <td>Add user-facing policy transparency UI.</td>
-            <td>
-              SSCD PP Part 2 §10.2.5.5 [[PPSSCD2]]; Samsung platform context
-              [[SAMSUNGS25US]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.5.6 FMT_MSA.2</td>
-            <td>Accept only secure attribute values.</td>
-            <td>
-              Galaxy S25 Ultra: enforce strict schema/range validation in
-              signing app and policy service.
-            </td>
-            <td>Reject weak/default values by policy.</td>
-            <td>
-              SSCD PP Part 2 §10.2.5.6 [[PPSSCD2]]; implementation closure in
-              ST/TSS
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.5.7 FMT_MSA.3</td>
-            <td>Static attribute initialization.</td>
-            <td>
-              Galaxy S25 Ultra: initialize keys with strict defaults (hardware
-              backing, user-auth gating, non-exportability).
-            </td>
-            <td>Demonstrate defaults are non-bypassable.</td>
-            <td>
-              SSCD PP Part 2 §10.2.5.7 [[PPSSCD2]]; Android key property
-              evidence [[ANDROIDATTEST]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.5.8 FMT_MSA.4</td>
-            <td>Attribute value inheritance rules.</td>
-            <td>
-              Galaxy S25 Ultra: define policy inheritance so child contexts
-              never relax parent signing constraints.
-            </td>
-            <td>Define deterministic inheritance matrix in ST.</td>
-            <td>
-              SSCD PP Part 2 §10.2.5.8 [[PPSSCD2]]; implementation closure in
-              ST/TSS
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.5.9 FMT_MTD.1/Admin</td>
-            <td>Admin TSF data management.</td>
-            <td>
-              Galaxy S25 Ultra: admin TSF updates must run through authenticated
-              managed channels and signed policy delivery.
-            </td>
-            <td>Apply dual control for critical admin changes.</td>
-            <td>
-              SSCD PP Part 2 §10.2.5.9 [[PPSSCD2]]; Knox managed policy context
-              [[KNOXTIMA]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.5.10 FMT_MTD.1/Signatory</td>
-            <td>Signatory TSF data management.</td>
-            <td>
-              Galaxy S25 Ultra: user controls own signing profile metadata in
-              app layer; add signed change records for auditability.
-            </td>
-            <td>Add signed change records for TSF data updates.</td>
-            <td>
-              SSCD PP Part 2 §10.2.5.10 [[PPSSCD2]]; implementation closure in
-              ST/TSS
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2>Family Map: FPT (Protection of the TSF)</h2>
-      <p>
-        Each table row is one clause subsection, mapped to Galaxy S25 Ultra
-        components.
-      </p>
-      <table class="map-table">
-        <thead>
-          <tr>
-            <th>Clause</th>
-            <th>What it asks</th>
-            <th>Phone mapping</th>
-            <th>Gap closure suggestion</th>
-            <th>Authority reference</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Part 2 §10.2.6.1 FPT_EMSEC.1 (Part 5 names FPT_EMS.1)</td>
-            <td>Emanation resistance.</td>
-            <td>
-              Galaxy S25 Ultra: map to Knox Vault components described as
-              resistant to side-channel and fault attacks, with PP0084 EAL4+
-              evaluation claim for underlying components [[KNOXVAULT]]
-              [[BSIPP0084]].
-            </td>
-            <td>
-              If full-phone evidence is weak, narrow TOE to evaluated secure
-              component.
-            </td>
-            <td>
-              SSCD PP Part 2 §10.2.6.1 [[PPSSCD2]], Part 5 naming note
-              [[PPSSCD5]]; Knox Vault and BSI publication record [[KNOXVAULT]]
-              [[BSIPP0084]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.6.2 FPT_FLS.1</td>
-            <td>Fail secure on failure.</td>
-            <td>
-              Galaxy S25 Ultra: trusted boot measurements gate keystore
-              operation; when integrity fails, key storage/use is refused
-              [[KNOXTIMA]].
-            </td>
-            <td>
-              Define exact secure-failure state transitions and test them.
-            </td>
-            <td>
-              SSCD PP Part 2 §10.2.6.2 [[PPSSCD2]]; Knox trusted-boot gating
-              [[KNOXTIMA]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.6.3 FPT_PHP.1</td>
-            <td>Passive detection of physical attack.</td>
-            <td>
-              Galaxy S25 Ultra: Knox Vault documentation describes tamper
-              detection hardware monitor and secure integrity-dependent behavior
-              [[KNOXVAULT]].
-            </td>
-            <td>
-              Expose measurable tamper state outputs to evaluation evidence.
-            </td>
-            <td>
-              SSCD PP Part 2 §10.2.6.3 [[PPSSCD2]]; Knox Vault tamper monitoring
-              [[KNOXVAULT]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.6.4 FPT_PHP.3</td>
-            <td>Resistance to physical attack scenarios.</td>
-            <td>
-              Galaxy S25 Ultra: Knox Vault subsystem is described as
-              tamper-proof and resistant to probing, side-channel, and fault
-              injection attack classes [[KNOXVAULT]].
-            </td>
-            <td>Select hardware SKU with public high-assurance claims.</td>
-            <td>
-              SSCD PP Part 2 §10.2.6.4 [[PPSSCD2]]; Samsung security hardware
-              claims [[KNOXVAULT]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 2 §10.2.6.5 FPT_TST.1</td>
-            <td>Self-test and integrity test functions.</td>
-            <td>
-              Galaxy S25 Ultra: trusted boot and integrity measurement path
-              provides startup validation hooks for security functions
-              [[KNOXTIMA]].
-            </td>
-            <td>Publish startup/runtime test coverage in evaluator package.</td>
-            <td>
-              SSCD PP Part 2 §10.2.6.5 [[PPSSCD2]]; trusted boot measurement
-              model [[KNOXTIMA]]
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2>Family Map: FTP (Trusted Channel/Path)</h2>
-      <p>
-        Each table row is one clause subsection, mapped to Galaxy S25 Ultra
-        components.
-      </p>
-      <table class="map-table">
-        <thead>
-          <tr>
-            <th>Clause</th>
-            <th>What it asks</th>
-            <th>Phone mapping</th>
-            <th>Gap closure suggestion</th>
-            <th>Authority reference</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Part 5 §9.1.3 FTP_ITC.1/VAD</td>
-            <td>Trusted channel for VAD/auth path.</td>
-            <td>
-              Galaxy S25 Ultra: system authentication path plus Knox-backed key
-              gating; add explicit anti-overlay controls in the signing app.
-            </td>
-            <td>Add secure attention and anti-overlay guarantees.</td>
-            <td>
-              SSCD PP Part 5 §9.1.3 [[PPSSCD5]]; implementation anchors
-              [[KNOXVAULT]] [[KNOXTIMA]]
-            </td>
-          </tr>
-          <tr>
-            <td>Part 5 §9.1.4 FTP_ITC.1/DTBS</td>
-            <td>Trusted channel for DTBS path.</td>
-            <td>
-              Galaxy S25 Ultra: authenticated integrity-protected DTBS channel
-              from SCA to TOE, verified with key attestation and payload binding
-              controls [[ANDROIDATTEST]].
-            </td>
-            <td>Bind DTBS hash shown to user with final sign command.</td>
-            <td>
-              SSCD PP Part 5 §9.1.4 [[PPSSCD5]]; Android key attestation
-              [[ANDROIDATTEST]]
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2>SAR/EAL Mapping for “Ready to Apply”</h2>
-      <p>
-        PP Part 2 and Part 5 both target EAL4 augmented with AVA_VAN.5
-        [[PPSSCD2]] [[PPSSCD5]]. The outcome is “methodically designed, tested,
-        and reviewed,” plus advanced vulnerability analysis [[CCPART3]]. For the
-        Galaxy S25 Ultra TOE, these assurance blocks still require a product ST
-        and evaluator evidence package.
-      </p>
-      <table class="map-table">
-        <thead>
-          <tr>
-            <th>Assurance block</th>
-            <th>What must exist</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>ASE_* (ST evaluation)</td>
-            <td>
-              Complete ST with conformance claims, objectives, requirements, and
-              TOE summary specification.
-            </td>
-          </tr>
-          <tr>
-            <td>ADV_*</td>
-            <td>
-              Architecture, functional spec, implementation representation, and
-              modular design evidence.
-            </td>
-          </tr>
-          <tr>
-            <td>ALC_*</td>
-            <td>
-              Lifecycle, configuration management, delivery, and development
-              security evidence.
-            </td>
-          </tr>
-          <tr>
-            <td>ATE_*</td>
-            <td>
-              Coverage, design-based tests, and independent testing samples.
-            </td>
-          </tr>
-          <tr>
-            <td>AVA_VAN.5</td>
-            <td>
-              Advanced methodical vulnerability analysis and penetration
-              testing.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <p>
-        CEM work units and verdict rules are used to produce pass/fail evidence
-        per assurance component [[CEMR5]].
-      </p>
-    </section>
-
-    <section>
-      <h2>Illustration: End-to-End Certification Flow</h2>
-      <figure class="illus">
-        <svg viewBox="0 0 980 170" role="img" aria-label="Certification flow">
-          <rect
-            x="20"
-            y="52"
-            width="155"
-            height="68"
-            rx="8"
-            fill="#eef2ff"
-            stroke="#a5b4fc"
-          />
-          <text x="34" y="79" font-size="12" fill="#1e3a8a">
-            1. Define TOE boundary
-          </text>
-          <rect
-            x="205"
-            y="52"
-            width="155"
-            height="68"
-            rx="8"
-            fill="#ecfeff"
-            stroke="#67e8f9"
-          />
-          <text x="219" y="79" font-size="12" fill="#0c4a6e">
-            2. Write ST + claims
-          </text>
-          <rect
-            x="390"
-            y="52"
-            width="175"
-            height="68"
-            rx="8"
-            fill="#fff7ed"
-            stroke="#fdba74"
-          />
-          <text x="404" y="79" font-size="12" fill="#7c2d12">
-            3. Produce SAR evidence
-          </text>
-          <rect
-            x="595"
-            y="52"
-            width="155"
-            height="68"
-            rx="8"
-            fill="#f0fdf4"
-            stroke="#86efac"
-          />
-          <text x="609" y="79" font-size="12" fill="#14532d">
-            4. CEM lab evaluation
-          </text>
-          <rect
-            x="780"
-            y="52"
-            width="180"
-            height="68"
-            rx="8"
-            fill="#fef2f2"
-            stroke="#fca5a5"
-          />
-          <text x="794" y="79" font-size="12" fill="#7f1d1d">
-            5. Scheme certification
-          </text>
-          <line
-            x1="175"
-            y1="86"
-            x2="205"
-            y2="86"
-            stroke="#334e68"
-            stroke-width="2"
-          />
-          <line
-            x1="360"
-            y1="86"
-            x2="390"
-            y2="86"
-            stroke="#334e68"
-            stroke-width="2"
-          />
-          <line
-            x1="565"
-            y1="86"
-            x2="595"
-            y2="86"
-            stroke="#334e68"
-            stroke-width="2"
-          />
-          <line
-            x1="750"
-            y1="86"
-            x2="780"
-            y2="86"
-            stroke="#334e68"
-            stroke-width="2"
-          />
-        </svg>
-        <figcaption>
-          High-level certification path from TOE definition to scheme
-          certification [[CCPART1]] [[CCPART3]] [[CEMR5]].
-        </figcaption>
-      </figure>
-    </section>
-
-    <section>
-      <h2>Galaxy S25 Ultra Readiness Snapshot (2026-02-26)</h2>
-      <div class="card">
+      <div class="mapping-key">
         <p>
-          1. S25 Ultra has publicly documented hardware-backed signing building
-          blocks (Knox Vault + TrustZone/TIMA keystore path) that map well to
-          core local-QSCD cryptographic controls [[KNOXVAULT]] [[KNOXTIMA]].
+          <strong>How to read this section:</strong> each card represents one
+          requirement line from the <a href="#term-sscd">SSCD</a> <a href="#term-pp">PP</a> set.
         </p>
         <p>
-          2. Samsung documentation links Knox Vault components to PP0084 EAL4+
-          evaluated components, which helps for hardware assurance positioning
-          in a narrowed TOE boundary [[KNOXVAULT]] [[BSIPP0084]].
-        </p>
-        <p>
-          3. This still does not equal legal qualified status by itself.
-          Certification and listing still follow the formal eIDAS path and
-          standards pointer process [[EIDAS910]] [[EIDAS2016650]]. The Common
-          Criteria products page is a public listing endpoint, not a normative
-          requirements source [[CCPROD]].
-        </p>
-        <p>
-          4. ETSI alignment is demonstrated in this report as a
-          requirement-intent mapping layer, but full ETSI conformity still
-          requires CA/QTSP operational evidence beyond handset-only controls.
+          <strong>COVERED</strong> shows what can already be mapped to S25
+          controls. <strong>UNCOVERED</strong> shows what still needs
+          implementation or evaluation evidence.
         </p>
       </div>
-    </section>
+      <p class="family-links">
+        <strong>Families:</strong>
+        <a href="#map-fcs">Cryptographic Support</a> (<a href="#term-fcs">FCS</a>),
+        <a href="#map-fdp">User Data Protection</a> (<a href="#term-fdp">FDP</a>),
+        <a href="#map-fia">Identification and Authentication</a> (<a href="#term-fia">FIA</a>),
+        <a href="#map-fmt">Security Management</a> (<a href="#term-fmt">FMT</a>),
+        <a href="#map-fpt">Protection of TSF</a> (<a href="#term-fpt">FPT</a>),
+        <a href="#map-ftp">Trusted Channel/Path</a> (<a href="#term-ftp">FTP</a>),
+        <a href="#map-closure">Cross-Family Closure Items</a>
+      </p>
 
-    <section>
-      <h2>Where No Direct Example Exists, What to Do</h2>
-      <table class="map-table">
-        <thead>
-          <tr>
-            <th>Gap</th>
-            <th>Suggested fulfillment path</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Trusted display proof for DTBS review before signing</td>
-            <td>
-              On S25 Ultra, add dedicated trusted-sign mode in app flow and
-              cryptographically bind displayed DTBS hash to signature command.
-            </td>
-          </tr>
-          <tr>
-            <td>Strong physical/emanation evidence at full-phone scope</td>
-            <td>
-              Narrow S25 TOE to Knox Vault + minimal trusted keystore/software
-              boundary for cert scope clarity.
-            </td>
-          </tr>
-          <tr>
-            <td>Admin/signatory role separation on consumer OS</td>
-            <td>
-              Define explicit role model in ST and enforce role-restricted
-              management APIs in managed Knox deployment.
-            </td>
-          </tr>
-          <tr>
-            <td>Opaque secure-channel internals in commodity stacks</td>
-            <td>
-              Add explicit signed request/response wrapper between SCA and TOE
-              channel endpoints, plus attestation verification.
-            </td>
-          </tr>
-          <tr>
-            <td>Insufficient AVA_VAN.5 depth evidence</td>
-            <td>
-              Run pre-cert penetration plan for S25 covering TEE escape, UI
-              overlay attack, side-channel, and fault injection vectors.
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <h3 id="map-fcs"><a href="#term-fcs">FCS</a> (Cryptographic Support)</h3>
+      <p class="family-intro">
+        Focus: key generation, key destruction, and signing operations inside
+        the trusted key boundary.
+      </p>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.2.1 FCS_CKM.1 - Generate <a href="#term-scd">SCD</a>/<a href="#term-svd">SVD</a> using specified algorithms and parameters. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> generate <a href="#term-scd">SCD</a>/<a href="#term-svd">SVD</a> in <a href="#term-knox-vault">Knox Vault</a> StrongBox /
+              KeyMint hardware path only [[KNOXVAULT]] [[KNOXTIMA]].</p>
+        <p><strong>UNCOVERED:</strong> Reject non-hardware key generation paths in <a href="#term-st">ST</a>.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.2.2 FCS_CKM.4 - Destroy keys according to specified method. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> key invalidation and hardware-protected key
+              storage lifecycle in <a href="#term-knox-vault">Knox Vault</a>/<a href="#term-tima">TIMA</a> keystore stack [[KNOXVAULT]]
+              [[KNOXTIMA]].</p>
+        <p><strong>UNCOVERED:</strong> Add residual-data verification tests.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.2.3 FCS_COP.1 - Perform cryptographic signing operation. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> private-key operations are kept inside
+              TrustZone/<a href="#term-knox-vault">Knox Vault</a> keystore boundary with non-exportable key
+              intent [[KNOXVAULT]] [[KNOXTIMA]].</p>
+        <p><strong>UNCOVERED:</strong> Constrain algorithm profiles explicitly in <a href="#term-st">ST</a> assignments.</p>
+      </div>
+
+      <h3 id="map-fdp"><a href="#term-fdp">FDP</a> (User Data Protection)</h3>
+      <p class="family-intro">
+        Focus: access control and integrity rules for key material, signing
+        operations, and <a href="#term-dtbs">DTBS</a> handling.
+      </p>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.3.1 FDP_ACC.1/<a href="#term-scd">SCD</a>/<a href="#term-svd">SVD</a>_Generation - Access control for key generation objects. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> key generation is policy-gated in <a href="#term-knox-vault">Knox Vault</a>/<a href="#term-tima">TIMA</a>
+              keystore with trusted boot state checks [[KNOXTIMA]].</p>
+        <p><strong>UNCOVERED:</strong> Publish role-policy matrix in <a href="#term-st">ST</a>.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.3.2 FDP_ACF.1/<a href="#term-scd">SCD</a>/<a href="#term-svd">SVD</a>_Generation - Attribute-based generation rules. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> enforce key attributes and usage constraints in
+              hardware-backed keystore policy objects [[KNOXTIMA]]
+              [[ANDROIDATTEST]].</p>
+        <p><strong>UNCOVERED:</strong> Add negative authorization tests.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.3.3 FDP_ACC.1/<a href="#term-svd">SVD</a>_Transfer - Access control for <a href="#term-svd">SVD</a> transfer. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> allow only public-key/certificate export via
+              approved <a href="#term-api">API</a> endpoint; private key remains non-exportable in
+              hardware [[KNOXTIMA]] [[KNOXVAULT]].</p>
+        <p><strong>UNCOVERED:</strong> Bind export to enrollment/certification state.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.3.4 FDP_ACF.1/<a href="#term-svd">SVD</a>_Transfer - Rules for <a href="#term-svd">SVD</a> transfer decisions. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> perform release checks on trusted boot state,
+              key purpose, and authenticated app flow before <a href="#term-svd">SVD</a> transfer
+              [[KNOXTIMA]] [[ANDROIDATTEST]].</p>
+        <p><strong>UNCOVERED:</strong> Add explicit deny rules for untrusted channels.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.3.5 FDP_ACC.1/Signature-creation - Access control on sign operation. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> signing only in authenticated session, with key
+              access controlled by <a href="#term-knox-vault">Knox Vault</a>/<a href="#term-tima">TIMA</a> path [[KNOXVAULT]]
+              [[KNOXTIMA]].</p>
+        <p><strong>UNCOVERED:</strong> Require per-signature intent token.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.3.6 FDP_ACF.1/Signature-creation - Attribute rules for sign operation. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> enforce key purpose, auth freshness, and boot
+              integrity state before sign execution [[KNOXTIMA]]
+              [[ANDROIDATTEST]].</p>
+        <p><strong>UNCOVERED:</strong> Add default-deny for background requests.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.3.7 FDP_RIP.1 - Residual information protection. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> partially mapped through hardware-backed
+              keystore isolation; explicit buffer-wipe evidence still needs <a href="#term-st">ST</a>
+              test artifacts.</p>
+        <p><strong>UNCOVERED:</strong> Include memory-clearing evidence in tests.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.3.8 FDP_SDI.2/Persistent - Persistent data integrity monitoring and action. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> trusted boot and keystore integrity checks gate
+              key usage and storage operations [[KNOXTIMA]].</p>
+        <p><strong>UNCOVERED:</strong> Add anti-rollback counters.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.3.9 FDP_SDI.2/<a href="#term-dtbs">DTBS</a> - <a href="#term-dtbs">DTBS</a> integrity monitoring and action. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> implement <a href="#term-dtbs">DTBS</a> hash-binding in <a href="#term-sca">SCA</a> and pass only
+              canonicalized payloads to keystore sign <a href="#term-api">API</a>.</p>
+        <p><strong>UNCOVERED:</strong> Define canonical <a href="#term-dtbsr">DTBS/R</a> serialization.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 5 §9.1.2 FDP_UIT.1/<a href="#term-dtbs">DTBS</a> - Integrity for <a href="#term-dtbs">DTBS</a> data exchange path. [[PPSSCD5]]</p>
+        <p><strong>COVERED:</strong> authenticated and integrity-protected <a href="#term-sca">SCA</a>-to-<a href="#term-toe">TOE</a>
+              channel, with key attestation and signed request envelope where
+              needed [[ANDROIDATTEST]] [[KNOXTIMA]].</p>
+        <p><strong>UNCOVERED:</strong> If opaque channel, wrap <a href="#term-dtbs">DTBS</a> in signed request envelope.</p>
+      </div>
+
+      <h3 id="map-fia"><a href="#term-fia">FIA</a> (Identification and Authentication)</h3>
+      <p class="family-intro">
+        Focus: when user identity and authentication are required before key
+        use and signature release.
+      </p>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.4.1 FIA_UID.1 - User identification timing. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> bind signatory identity context before protected
+              keystore operations in the signing ceremony.</p>
+        <p><strong>UNCOVERED:</strong> Bind identity context to signing session id.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.4.2 FIA_UAU.1 - User authentication timing. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> biometric/PIN gating before sign release through
+              <a href="#term-knox-vault">Knox Vault</a>-backed auth path [[KNOXVAULT]].</p>
+        <p><strong>UNCOVERED:</strong> Step-up auth for high-risk signatures.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.4.3 FIA_AFL.1 - Authentication failure handling. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> retry limits and increasing timeout behavior are
+              documented for <a href="#term-knox-vault">Knox Vault</a> authentication [[KNOXVAULT]].</p>
+        <p><strong>UNCOVERED:</strong> Expose lockout policy as <a href="#term-tsf">TSF</a>-managed data.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 5 §9.1.1 FIA_UAU.1 refinement - Authentication flow adapted for trusted channel/<a href="#term-vad">VAD</a> path. [[PPSSCD5]]</p>
+        <p><strong>COVERED:</strong> use system-auth path tied to signing ceremony;
+              strong anti-overlay proof remains a closure item for <a href="#term-st">ST</a> evidence.</p>
+        <p><strong>UNCOVERED:</strong> Add secure attention mode for <a href="#term-vad">VAD</a> entry.</p>
+      </div>
+
+      <h3 id="map-fmt"><a href="#term-fmt">FMT</a> (Security Management)</h3>
+      <p class="family-intro">
+        Focus: role separation, management functions, and policy control of
+        security-relevant settings.
+      </p>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.5.1 FMT_SMR.1 - Maintain security roles. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> consumer profile is mostly single-user; explicit
+              Admin vs Signatory separation needs managed deployment policy.</p>
+        <p><strong>UNCOVERED:</strong> Do not collapse both roles silently in production.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.5.2 FMT_SMF.1 - List <a href="#term-toe">TOE</a> management functions. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> key lifecycle, auth, certificate policy, and
+              keystore control functions are available through <a href="#term-knox-vault">Knox Vault</a> policy
+              paths.</p>
+        <p><strong>UNCOVERED:</strong> Complete all <a href="#term-st">ST</a> assignments from <a href="#term-pp">PP</a> application notes.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.5.3 FMT_MOF.1 - Restrict security function behavior management. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> restrict sign-enable behavior through managed
+              policy and app-layer authorization gates.</p>
+        <p><strong>UNCOVERED:</strong> Add immutable event logs for enable/disable actions.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.5.4 FMT_MSA.1/Admin - Admin management of security attributes. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> admin-side certificate and keystore policy
+              controls exist in managed Knox deployment flows [[KNOXTIMA]].</p>
+        <p><strong>UNCOVERED:</strong> Require authenticated admin channel and approvals.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.5.5 FMT_MSA.1/Signatory - Signatory management of security attributes. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> signatory-side controls exist at app level; add
+              explicit user policy UI for certification-grade traceability.</p>
+        <p><strong>UNCOVERED:</strong> Add user-facing policy transparency UI.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.5.6 FMT_MSA.2 - Accept only secure attribute values. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> enforce strict schema/range validation in
+              signing app and policy service.</p>
+        <p><strong>UNCOVERED:</strong> Reject weak/default values by policy.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.5.7 FMT_MSA.3 - Static attribute initialization. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> initialize keys with strict defaults (hardware
+              backing, user-auth gating, non-exportability).</p>
+        <p><strong>UNCOVERED:</strong> Demonstrate defaults are non-bypassable.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.5.8 FMT_MSA.4 - Attribute value inheritance rules. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> define policy inheritance so child contexts
+              never relax parent signing constraints.</p>
+        <p><strong>UNCOVERED:</strong> Define deterministic inheritance matrix in <a href="#term-st">ST</a>.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.5.9 FMT_MTD.1/Admin - Admin <a href="#term-tsf">TSF</a> data management. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> admin <a href="#term-tsf">TSF</a> updates must run through authenticated
+              managed channels and signed policy delivery.</p>
+        <p><strong>UNCOVERED:</strong> Apply dual control for critical admin changes.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.5.10 FMT_MTD.1/Signatory - Signatory <a href="#term-tsf">TSF</a> data management. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> user controls own signing profile metadata in
+              app layer; add signed change records for auditability.</p>
+        <p><strong>UNCOVERED:</strong> Add signed change records for <a href="#term-tsf">TSF</a> data updates.</p>
+      </div>
+
+      <h3 id="map-fpt"><a href="#term-fpt">FPT</a> (Protection of the <a href="#term-tsf">TSF</a>)</h3>
+      <p class="family-intro">
+        Focus: protection of security functions against tamper, failure, and
+        integrity compromise.
+      </p>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.6.1 FPT_EMSEC.1 (Part 5 names FPT_EMS.1) - Emanation resistance. [[PPSSCD2]], Part 5 naming note [[PPSSCD5]]</p>
+        <p><strong>COVERED:</strong> map to <a href="#term-knox-vault">Knox Vault</a> components described as
+              resistant to side-channel and fault attacks, with PP0084 EAL4+
+              evaluation claim for underlying components [[KNOXVAULT]]
+              [[BSIPP0084]].</p>
+        <p><strong>UNCOVERED:</strong> If full-phone evidence is weak, narrow <a href="#term-toe">TOE</a> to evaluated secure
+              component.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.6.2 FPT_FLS.1 - Fail secure on failure. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> trusted boot measurements gate keystore
+              operation; when integrity fails, key storage/use is refused
+              [[KNOXTIMA]].</p>
+        <p><strong>UNCOVERED:</strong> Define exact secure-failure state transitions and test them.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.6.3 FPT_PHP.1 - Passive detection of physical attack. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> <a href="#term-knox-vault">Knox Vault</a> documentation describes tamper
+              detection hardware monitor and secure integrity-dependent behavior
+              [[KNOXVAULT]].</p>
+        <p><strong>UNCOVERED:</strong> Expose measurable tamper state outputs to evaluation evidence.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.6.4 FPT_PHP.3 - Resistance to physical attack scenarios. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> <a href="#term-knox-vault">Knox Vault</a> subsystem is described as
+              tamper-proof and resistant to probing, side-channel, and fault
+              injection attack classes [[KNOXVAULT]].</p>
+        <p><strong>UNCOVERED:</strong> Select hardware SKU with public high-assurance claims.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 2 §10.2.6.5 FPT_TST.1 - Self-test and integrity test functions. [[PPSSCD2]]</p>
+        <p><strong>COVERED:</strong> trusted boot and integrity measurement path
+              provides startup validation hooks for security functions
+              [[KNOXTIMA]].</p>
+        <p><strong>UNCOVERED:</strong> Publish startup/runtime test coverage in evaluator package.</p>
+      </div>
+
+      <h3 id="map-ftp"><a href="#term-ftp">FTP</a> (Trusted Channel/Path)</h3>
+      <p class="family-intro">
+        Focus: trusted communication paths for authentication data and
+        data-to-be-signed.
+      </p>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 5 §9.1.3 FTP_ITC.1/<a href="#term-vad">VAD</a> - Trusted channel for <a href="#term-vad">VAD</a>/auth path. [[PPSSCD5]]</p>
+        <p><strong>COVERED:</strong> system authentication path plus <a href="#term-knox-vault">Knox Vault</a>-backed key
+              gating; add explicit anti-overlay controls in the signing app.</p>
+        <p><strong>UNCOVERED:</strong> Add secure attention and anti-overlay guarantees.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Part 5 §9.1.4 FTP_ITC.1/<a href="#term-dtbs">DTBS</a> - Trusted channel for <a href="#term-dtbs">DTBS</a> path. [[PPSSCD5]]</p>
+        <p><strong>COVERED:</strong> authenticated integrity-protected <a href="#term-dtbs">DTBS</a> channel
+              from <a href="#term-sca">SCA</a> to <a href="#term-toe">TOE</a>, verified with key attestation and payload binding
+              controls [[ANDROIDATTEST]].</p>
+        <p><strong>UNCOVERED:</strong> Bind <a href="#term-dtbs">DTBS</a> hash shown to user with final sign command.</p>
+      </div>
+
+      <h3 id="map-closure">Cross-Family Closure Items</h3>
+      <p class="family-intro">
+        These are high-impact closure tasks that cut across multiple <a href="#term-cc">CC</a>
+        families.
+      </p>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Trusted display proof for <a href="#term-dtbs">DTBS</a> review before signing</p>
+        <p><strong>COVERED:</strong> Partial coverage exists through the mapped family controls and current S25 security architecture.</p>
+        <p><strong>UNCOVERED:</strong> On S25 Ultra, add dedicated trusted-sign mode in app flow and
+              cryptographically bind displayed <a href="#term-dtbs">DTBS</a> hash to signature command.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Strong physical/emanation evidence at full-phone scope</p>
+        <p><strong>COVERED:</strong> Partial coverage exists through the mapped family controls and current S25 security architecture.</p>
+        <p><strong>UNCOVERED:</strong> Narrow S25 <a href="#term-toe">TOE</a> to <a href="#term-knox-vault">Knox Vault</a> + minimal trusted keystore/software
+              boundary for cert scope clarity.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Admin/signatory role separation on consumer OS</p>
+        <p><strong>COVERED:</strong> Partial coverage exists through the mapped family controls and current S25 security architecture.</p>
+        <p><strong>UNCOVERED:</strong> Define explicit role model in <a href="#term-st">ST</a> and enforce role-restricted
+              management <a href="#term-api">APIs</a> in managed Knox deployment.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Opaque secure-channel internals in commodity stacks</p>
+        <p><strong>COVERED:</strong> Partial coverage exists through the mapped family controls and current S25 security architecture.</p>
+        <p><strong>UNCOVERED:</strong> Add explicit signed request/response wrapper between <a href="#term-sca">SCA</a> and <a href="#term-toe">TOE</a>
+              channel endpoints, plus attestation verification.</p>
+      </div>
+      <div class="card">
+        <p><strong>CRITERIA:</strong> Insufficient AVA_VAN.5 depth evidence</p>
+        <p><strong>COVERED:</strong> Partial coverage exists through the mapped family controls and current S25 security architecture.</p>
+        <p><strong>UNCOVERED:</strong> Run pre-cert penetration plan for S25 covering <a href="#term-tee">TEE</a> escape, UI
+              overlay attack, side-channel, and fault injection vectors.</p>
+      </div>
     </section>
 
     <section>
@@ -1727,6 +1011,20 @@
         stay hardware-bound, trusted channels are explicit, and ST/SAR evidence
         is complete.
       </p>
+      <p>
+        Given that technical baseline, pursuing recognition paths for regular
+        user devices as QSCD-capable local-signing endpoints is worth
+        prioritizing for decentralization and accessibility. This direction is
+        further supported by unresolved remote-signing weaknesses documented in
+        the companion report:
+        <a href="https://z-base.github.io/rqscd-report/"
+          >https://z-base.github.io/rqscd-report/</a
+        >.
+      </p>
     </section>
   </body>
 </html>
+
+
+
+
