@@ -2,10 +2,199 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="https://sovereignbase.dev/sovereignbase_logo.png" />
+    <meta
+      name="description"
+      content="Technical report mapping a Samsung Galaxy S25 Ultra local-signing TOE to Common Criteria and SSCD protection-profile requirements for local QSCD readiness, including covered controls, uncovered items, and required evaluation evidence."
+    />
+    <meta
+      name="keywords"
+      content="local QSCD, SSCD, Common Criteria, Samsung Galaxy S25 Ultra, local signing, eIDAS, protection profile, StrongBox, Knox Vault"
+    />
+    <meta name="author" content="Jori Lehtinen" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="application-name" content="lqscd-report" />
+    <link rel="canonical" href="https://sovereignbase.dev/lqscd-report/" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://sovereignbase.dev/sovereignbase_logo.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://sovereignbase.dev/sovereignbase_logo.png"
+    />
     <title>
       Your phone might match the protection profile of a QSCD for local signing
     </title>
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Sovereignbase" />
+    <meta
+      property="og:title"
+      content="Your phone might match the protection profile of a QSCD for local signing"
+    />
+    <meta
+      property="og:description"
+      content="Technical report mapping a Samsung Galaxy S25 Ultra local-signing TOE to Common Criteria and SSCD protection-profile requirements for local QSCD readiness, including covered controls, uncovered items, and required evaluation evidence."
+    />
+    <meta property="og:url" content="https://sovereignbase.dev/lqscd-report/" />
+    <meta
+      property="og:image"
+      content="https://sovereignbase.dev/sovereignbase_social_sharing_image.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Your phone might match the protection profile of a QSCD for local signing"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Your phone might match the protection profile of a QSCD for local signing"
+    />
+    <meta
+      name="twitter:description"
+      content="Technical report mapping a Samsung Galaxy S25 Ultra local-signing TOE to Common Criteria and SSCD protection-profile requirements for local QSCD readiness, including covered controls, uncovered items, and required evaluation evidence."
+    />
+    <meta
+      name="twitter:image"
+      content="https://sovereignbase.dev/sovereignbase_social_sharing_image.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Your phone might match the protection profile of a QSCD for local signing"
+    />
+    <meta name="twitter:creator" content="@jortsupetterson" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://sovereignbase.dev/lqscd-report/#organization",
+            "name": "Sovereignbase",
+            "url": "https://github.com/sovereignbase",
+            "alternateName": ["@sovereignbase"],
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://sovereignbase.dev/sovereignbase_logo.png",
+              "width": 320,
+              "height": 320
+            },
+            "sameAs": [
+              "https://github.com/sovereignbase",
+              "https://jsr.io/@sovereignbase",
+              "https://www.npmjs.com/org/sovereignbase"
+            ]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://sovereignbase.dev/lqscd-report/#author",
+            "name": "Jori Lehtinen",
+            "url": "https://github.com/jortsupetterson",
+            "alternateName": ["jortsupetterson", "@jortsupetterson"],
+            "sameAs": [
+              "https://github.com/jortsupetterson",
+              "https://www.npmjs.com/~jortsupetterson",
+              "https://jsr.io/user/ab186a13-a64f-429e-a757-927aa4fa6e6c",
+              "https://linkedin.com/in/jortsupetterson",
+              "https://x.com/jortsupetterson",
+              "https://www.youtube.com/@jortsupetterson"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://sovereignbase.dev/lqscd-report/#website",
+            "url": "https://sovereignbase.dev/lqscd-report/",
+            "name": "lqscd-report",
+            "inLanguage": "en",
+            "publisher": {
+              "@id": "https://sovereignbase.dev/lqscd-report/#organization"
+            }
+          },
+          {
+            "@type": "TechArticle",
+            "@id": "https://sovereignbase.dev/lqscd-report/#article",
+            "headline": "Your phone might match the protection profile of a QSCD for local signing",
+            "name": "Your phone might match the protection profile of a QSCD for local signing",
+            "url": "https://sovereignbase.dev/lqscd-report/",
+            "description": "Technical report mapping a Samsung Galaxy S25 Ultra local-signing TOE to Common Criteria and SSCD protection-profile requirements for local QSCD readiness, including covered controls, uncovered items, and required evaluation evidence.",
+            "inLanguage": "en",
+            "isPartOf": {
+              "@id": "https://sovereignbase.dev/lqscd-report/#website"
+            },
+            "mainEntityOfPage": {
+              "@id": "https://sovereignbase.dev/lqscd-report/#webpage"
+            },
+            "author": {
+              "@id": "https://sovereignbase.dev/lqscd-report/#author"
+            },
+            "publisher": {
+              "@id": "https://sovereignbase.dev/lqscd-report/#organization"
+            },
+            "keywords": [
+              "local QSCD",
+              "SSCD",
+              "Common Criteria",
+              "Samsung Galaxy S25 Ultra",
+              "local signing",
+              "eIDAS",
+              "protection profile",
+              "StrongBox",
+              "Knox Vault"
+            ],
+            "about": [
+              "Local QSCD readiness mapping",
+              "Common Criteria and SSCD protection profiles",
+              "Samsung Galaxy S25 Ultra local signing"
+            ],
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://sovereignbase.dev/sovereignbase_social_sharing_image.png",
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://sovereignbase.dev/lqscd-report/#webpage",
+            "url": "https://sovereignbase.dev/lqscd-report/",
+            "name": "Your phone might match the protection profile of a QSCD for local signing",
+            "description": "Technical report mapping a Samsung Galaxy S25 Ultra local-signing TOE to Common Criteria and SSCD protection-profile requirements for local QSCD readiness, including covered controls, uncovered items, and required evaluation evidence.",
+            "inLanguage": "en",
+            "isPartOf": {
+              "@id": "https://sovereignbase.dev/lqscd-report/#website"
+            },
+            "about": {
+              "@id": "https://sovereignbase.dev/lqscd-report/#article"
+            },
+            "author": {
+              "@id": "https://sovereignbase.dev/lqscd-report/#author"
+            },
+            "publisher": {
+              "@id": "https://sovereignbase.dev/lqscd-report/#organization"
+            },
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "url": "https://sovereignbase.dev/sovereignbase_social_sharing_image.png",
+              "width": 1200,
+              "height": 630
+            },
+            "relatedLink": [
+              "https://github.com/sovereignbase",
+              "https://github.com/sovereignbase/lqscd-report",
+              "https://github.com/jortsupetterson",
+              "https://sovereignbase.dev/gqscd/"
+            ]
+          }
+        ]
+      }
+    </script>
     <script
       src="https://www.w3.org/Tools/respec/respec-w3c"
       class="remove"
@@ -179,11 +368,6 @@
             href: "https://www.iso.org/standard/72893.html",
             publisher: "ISO",
           },
-          GQSCDCORE: {
-            title: "GQSCD Core draft",
-            href: "https://z-base.github.io/gqscd/",
-            publisher: "z-base",
-          },
           SAMSUNGS25US: {
             title: "Galaxy S25 Ultra | Features & Highlights | Samsung US",
             href: "https://www.samsung.com/us/smartphones/galaxy-s25-ultra/",
@@ -233,30 +417,41 @@
             status:
               "Maintained BSI list page; includes BSI-CC-PP-0084-2014 entry (checked February 27, 2026)",
           },
+          RQSCDREPORT: {
+            title:
+              "RQSCD report: local qualified-signature control model (project reference)",
+            href: "https://sovereignbase.dev/rqscd-report/",
+            publisher: "Sovereignbase",
+          },
         },
       };
     </script>
     <style>
       :root {
-        --ink: #0b2239;
-        --line: #d9e2ec;
+        --ink: #111827;
+        --muted: #4b5563;
+        --line: #d1d5db;
       }
       body {
         color: var(--ink);
-        font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
-        background: linear-gradient(180deg, #ffffff 0%, #f6f9fc 100%);
+        font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+        background: #fff;
       }
       h1,
       h2,
       h3 {
-        font-family: "Space Grotesk", "Avenir Next", sans-serif;
+        font-family: inherit;
       }
       .card {
-        border: 1px solid var(--line);
-        border-radius: 10px;
-        padding: 0.8rem 1rem;
-        background: #fff;
-        margin: 0.8rem 0;
+        border: 0;
+        border-radius: 0;
+        padding: 0.15rem 0 0.95rem;
+        background: transparent;
+        margin: 1rem 0 1.2rem;
+      }
+      .card + .card {
+        border-top: 1px solid #e5e7eb;
+        padding-top: 1rem;
       }
       .map-table {
         width: 100%;
@@ -270,25 +465,26 @@
         vertical-align: top;
       }
       .map-table th {
-        background: #f0f4f8;
+        background: #f8fafc;
       }
       figure.illus {
-        margin: 1rem 0;
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        background: #fff;
-        padding: 0.8rem;
+        margin: 1rem 0 1.3rem;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        padding: 0;
       }
       .illus img {
         width: 100%;
         height: auto;
-        border-radius: 10px;
-        border: 1px solid var(--line);
+        display: block;
+        border-radius: 8px;
+        border: 0;
       }
       .two-up {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 0.8rem;
+        gap: 1rem;
       }
       .term-list dt {
         font-weight: 700;
@@ -298,24 +494,29 @@
         margin: 0.15rem 0 0.55rem 1.1rem;
       }
       .mapping-section h3 {
-        margin-top: 1.35rem;
+        margin-top: 1.5rem;
       }
       .mapping-section .card p {
-        margin: 0.35rem 0;
-        line-height: 1.45;
+        margin: 0.42rem 0;
+        line-height: 1.55;
       }
       .mapping-key {
-        border: 1px solid var(--line);
-        border-radius: 10px;
-        background: #fff;
-        padding: 0.7rem 0.9rem;
-        margin: 0.7rem 0 0.9rem;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        padding: 0;
+        margin: 0.75rem 0 1rem;
+        color: var(--muted);
+      }
+      .mapping-key p {
+        margin: 0.35rem 0;
       }
       .family-links {
-        margin: 0.45rem 0 0.95rem;
+        margin: 0.6rem 0 1rem;
       }
       .family-intro {
-        margin: 0.2rem 0 0.55rem;
+        margin: 0.25rem 0 0.8rem;
+        color: var(--muted);
       }
     </style>
   </head>
@@ -436,21 +637,26 @@
     <section id="terminology">
       <h2>Terminology and Abbreviations</h2>
       <p>
-        Definitions for the terms and abbreviations used in this report.
-        Formal source pointers are given at clause level where possible:
-        <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910"
+        Definitions for the terms and abbreviations used in this report. Formal
+        source pointers are given at clause level where possible:
+        <a
+          href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910"
           >eIDAS Article 25, Article 26, Annex II</a
         >,
-        <a href="https://www.commoncriteriaportal.org/files/ppfiles/pp0059b_pdf.pdf"
+        <a
+          href="https://www.commoncriteriaportal.org/files/ppfiles/pp0059b_pdf.pdf"
           >SSCD PP Part 2, Section 10.2.2 through 10.2.6</a
         >,
-        <a href="https://www.commoncriteriaportal.org/files/ppfiles/pp0072b_pdf.pdf"
+        <a
+          href="https://www.commoncriteriaportal.org/files/ppfiles/pp0072b_pdf.pdf"
           >SSCD PP Part 5, Section 9.1.1 through 9.1.4</a
         >,
-        <a href="https://www.commoncriteriaportal.org/files/ccfiles/CC2022PART3R1.pdf"
+        <a
+          href="https://www.commoncriteriaportal.org/files/ccfiles/CC2022PART3R1.pdf"
           >CC Part 3 assurance classes</a
         >, and
-        <a href="https://www.commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf"
+        <a
+          href="https://www.commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf"
           >CEM evaluator activities</a
         >.
       </p>
@@ -461,8 +667,8 @@
         </dt>
         <dd>
           The evaluated security boundary for one concrete product claim, as
-          defined in the Common Criteria model and claimed in the ST
-          [[CCPART1]] [[CCPART3]].
+          defined in the Common Criteria model and claimed in the ST [[CCPART1]]
+          [[CCPART3]].
         </dd>
         <dt>
           <dfn class="export" id="term-cc" data-lt="CC">CC</dfn> (Common
@@ -511,8 +717,7 @@
           Evaluation Methodology)
         </dt>
         <dd>
-          Evaluator activity methodology for CC assurance components
-          [[CEMR5]].
+          Evaluator activity methodology for CC assurance components [[CEMR5]].
         </dd>
         <dt>
           <dfn class="export" id="term-eidas" data-lt="eIDAS">eIDAS</dfn>
@@ -540,32 +745,35 @@
           control and protected key use on the user device, while mapping the
           claim to eIDAS Annex II controls and SSCD PP clause families (Part 2
           functional requirement clauses and Part 5 channel/auth refinements)
-          with CC/CEM
-          assurance evidence expectations; clause sources:
-          <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910"
+          with CC/CEM assurance evidence expectations; clause sources:
+          <a
+            href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910"
             >eIDAS Annex II</a
           >,
-          <a href="https://www.commoncriteriaportal.org/files/ppfiles/pp0059b_pdf.pdf"
+          <a
+            href="https://www.commoncriteriaportal.org/files/ppfiles/pp0059b_pdf.pdf"
             >SSCD PP Part 2, Section 10.2.2 through 10.2.6</a
           >,
-          <a href="https://www.commoncriteriaportal.org/files/ppfiles/pp0072b_pdf.pdf"
+          <a
+            href="https://www.commoncriteriaportal.org/files/ppfiles/pp0072b_pdf.pdf"
             >SSCD PP Part 5, Section 9.1.1 through 9.1.4</a
           >,
-          <a href="https://www.commoncriteriaportal.org/files/ccfiles/CC2022PART3R1.pdf"
+          <a
+            href="https://www.commoncriteriaportal.org/files/ccfiles/CC2022PART3R1.pdf"
             >CC Part 3</a
           >, and
-          <a href="https://www.commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf"
+          <a
+            href="https://www.commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf"
             >CEM</a
-          >.
-          [[EIDAS910]] [[PPSSCD2]] [[PPSSCD5]] [[CCPART3]] [[CEMR5]].
+          >. [[EIDAS910]] [[PPSSCD2]] [[PPSSCD5]] [[CCPART3]] [[CEMR5]].
         </dd>
         <dt>
           <dfn class="export" id="term-etsi" data-lt="ETSI">ETSI</dfn>
         </dt>
         <dd>
-          European standards body publishing the trust-service standards used
-          in this report (for example EN 319 401, EN 319 411-1/-2, EN 319
-          412-5, TS 119 431-1, TS 119 432) [[ETSIEN319401]] [[ETSIEN3194111]]
+          European standards body publishing the trust-service standards used in
+          this report (for example EN 319 401, EN 319 411-1/-2, EN 319 412-5, TS
+          119 431-1, TS 119 432) [[ETSIEN319401]] [[ETSIEN3194111]]
           [[ETSIEN3194112]] [[ETSIEN3194125]] [[ETSI1194311]] [[ETSI119432]].
         </dd>
         <dt>
@@ -850,8 +1058,8 @@
         </dt>
         <dd>
           Report mapping label for remaining claim gaps that still require ST
-          assignments, evaluator evidence, or implementation closure
-          [[CCPART3]] [[CEMR5]].
+          assignments, evaluator evidence, or implementation closure [[CCPART3]]
+          [[CEMR5]].
         </dd>
       </dl>
     </section>
@@ -2014,8 +2222,8 @@
         Samsung Galaxy S25 Ultra can be profiled toward
         <a href="#term-local-qscd">local-QSCD</a> behavior if the
         <a href="#term-toe">TOE</a> boundary is strict around
-        <a href="#term-knox-vault">Knox Vault</a>/keystore components, keys
-        stay hardware-bound, trusted channels are explicit, and
+        <a href="#term-knox-vault">Knox Vault</a>/keystore components, keys stay
+        hardware-bound, trusted channels are explicit, and
         <a href="#term-st">ST</a>/<a href="#term-sar">SAR</a> evidence is
         complete [[KNOXVAULT]] [[ANDROIDKEYSTORE]] [[PPSSCD2]] [[PPSSCD5]]
         [[CCPART3]] [[CEMR5]].
@@ -2027,8 +2235,8 @@
         prioritizing for decentralization and accessibility. This direction is
         further supported by unresolved remote-signing weaknesses documented in
         the companion report:
-        <a href="https://z-base.github.io/rqscd-report/"
-          >https://z-base.github.io/rqscd-report/</a
+        <a href="https://sovereignbase.dev/rqscd-report/"
+          >https://sovereignbase.dev/rqscd-report/</a
         >.
       </p>
     </section>
